@@ -26,6 +26,8 @@ class GeneralOids(object):
         self.sysLocation = self.fo("1.3.6.1.2.1.1.6")
 
         # From IF-MIB
+        self.ifTable       = self.fo("1.3.6.1.2.1.2.2")
+        self.ifEntry       = self.fo("1.3.6.1.2.1.2.2.1")
         self.ifIndex       = self.fo("1.3.6.1.2.1.2.2.1.1")
         self.ifDescr       = self.fo("1.3.6.1.2.1.2.2.1.2")
         self.ifMtu         = self.fo("1.3.6.1.2.1.2.2.1.4")
