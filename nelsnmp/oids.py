@@ -1,6 +1,6 @@
 
 
-class DefineOid(object):
+class GeneralOids(object):
     """Statically define oids instead of using MIB
 
     Class Arguments
@@ -39,10 +39,6 @@ class DefineOid(object):
         self.ipAdEntAddr    = self.fo("1.3.6.1.2.1.4.20.1.1")
         self.ipAdEntIfIndex = self.fo("1.3.6.1.2.1.4.20.1.2")
         self.ipAdEntNetMask = self.fo("1.3.6.1.2.1.4.20.1.3")
-
-        # From CISCO-FIREWALL-MIB
-        self.cfwConnectionStatValue = self.fo(
-            "1.3.6.1.4.1.9.9.147.1.2.2.2.1.5")
 
 
     # format_oid
