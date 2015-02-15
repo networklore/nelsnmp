@@ -14,7 +14,6 @@ class SnmpHandler(object):
 
 
         for key in kwargs:
-            print key, kwargs[key]
             if key == 'version' and kwargs[key] in SNMP_VERSIONS:   
                 self.version = kwargs[key]
             if key == 'community':
