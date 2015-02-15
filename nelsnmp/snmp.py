@@ -40,11 +40,9 @@ class SnmpHandler(object):
             *snmp_query
         )
 
-        if errorIndication:
-            nelmon.common.exit_with_error(errorIndication)
-
-        if errorStatus:
-            nelmon.common.exit_with_error(errorStatus)
+        if errorIndication or errorStatus:
+            # Fix error handling
+            pass
 
         return varBinds
 
@@ -56,17 +54,15 @@ class SnmpHandler(object):
             snmp_query.append(cmdgen.MibVariable(oid,), )
 
         cmdGen = cmdgen.CommandGenerator()
-        errorIndication, errorStatus, errorIndex, varBinds = cmdGen.nextCmd(
+        errorIndication, errorStatus, errorIndex, varTable = cmdGen.nextCmd(
             self.snmp_auth,
             cmdgen.UdpTransportTarget((self.host, self.port)),
             *snmp_query
         )
 
-        if errorIndication:
-            nelmon.common.exit_with_error(errorIndication)
+        if errorIndication or errorStatus:
+            # Fix error handling
+            pass
 
-        if errorStatus:
-            nelmon.common.exit_with_error(errorStatus)
-
-        return varBinds
+        return varTable
 
