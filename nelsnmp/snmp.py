@@ -2,6 +2,13 @@ from pysnmp.entity.rfc3413.oneliner import cmdgen
 
 SNMP_VERSIONS = ('2c', '3')
 
+
+class ArgumentError(Exception):
+    def __init__(self, value):
+        self.value = value
+    def __str__(self):
+        return repr(self.value)    
+
 class SnmpHandler(object):
     
 
@@ -20,6 +27,9 @@ class SnmpHandler(object):
                 self.community = kwargs[key]
             if key == 'host':
                 self.host = kwargs[key]
+
+        if self.version not in SNMP_VERSIONS:
+            raise ArgumentError('No valid SNMP version defined')
 
         if self.version == False or self.host == False:
             print "You have to set version and host"
