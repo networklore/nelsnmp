@@ -36,7 +36,7 @@ class SnmpHandler(object):
         if self.version == "2c":
             self.snmp_auth = cmdgen.CommunityData(self.community)
 
-    def snmp_get(self, *oidlist):
+    def get(self, *oidlist):
 
         snmp_query = []
         for oid in oidlist:
@@ -56,7 +56,7 @@ class SnmpHandler(object):
         return varBinds
 
 
-    def snmp_getnext(self, *oidlist):
+    def getnext(self, *oidlist):
 
         snmp_query = []
         for oid in oidlist:
