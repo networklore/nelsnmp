@@ -34,6 +34,15 @@ class CiscoOids(GeneralOids):
         self.vtpVlanEditRowStatus = self.fo(
             "1.3.6.1.4.1.9.9.46.1.4.2.1.11")
 
+        # From CISCO-CONFIG-COPY-MIB
+        self.ccCopySourceFileType = self.fo(
+            "1.3.6.1.4.1.9.9.96.1.1.1.1.3")
+        self.ccCopyDestFileType = self.fo(
+            "1.3.6.1.4.1.9.9.96.1.1.1.1.4")
+        self.ccCopyState = self.fo(
+            "1.3.6.1.4.1.9.9.96.1.1.1.1.10")
+        self.ccCopyEntryRowStatus = self.fo(
+            "1.3.6.1.4.1.9.9.96.1.1.1.1.14")
 
         # From CISCO-FIREWALL-MIB
         self.cfwConnectionStatValue = self.fo(
