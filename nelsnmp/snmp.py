@@ -75,3 +75,16 @@ class SnmpHandler(object):
 
         return varTable
 
+    def set(self, *snmp_sets):
+
+        cmdGen = cmdgen.CommandGenerator()
+        errorIndication, errorStatus, errorIndex, varTable = cmdGen.setCmd(
+            self.snmp_auth,
+            cmdgen.UdpTransportTarget((self.host, self.port)),
+            *snmp_sets
+        )
+
+        if errorIndication or errorStatus:
+            # Fix error handling
+            pass
+
