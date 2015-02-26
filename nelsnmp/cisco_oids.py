@@ -15,8 +15,12 @@ class CiscoOids(GeneralOids):
         super(CiscoOids, self).__init__(snmptype)
 
         # From CISCO-VTP-MIB
+        self.vtpVlanIndex = self.fo(
+            "1.3.6.1.4.1.9.9.46.1.3.1.1.1")
         self.vtpVlanState = self.fo(
             "1.3.6.1.4.1.9.9.46.1.3.1.1.2")
+        self.vtpVlanName = self.fo(
+            "1.3.6.1.4.1.9.9.46.1.3.1.1.4")       
         self.vtpVlanEditOperation = self.fo(
             "1.3.6.1.4.1.9.9.46.1.4.1.1.1")
         self.vtpVlanEditBufferOwner = self.fo(
