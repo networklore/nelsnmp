@@ -41,7 +41,10 @@ class GeneralOids(object):
         self.ipAdEntAddr    = self.fo("1.3.6.1.2.1.4.20.1.1")
         self.ipAdEntIfIndex = self.fo("1.3.6.1.2.1.4.20.1.2")
         self.ipAdEntNetMask = self.fo("1.3.6.1.2.1.4.20.1.3")
-
+                       
+        # From ENTITY-MIB
+        self.entPhysicalDescr = self.fo("1.3.6.1.2.1.47.1.1.1.1.2")
+        self.entPhysicalSerialNum = self.fo("1.3.6.1.2.1.47.1.1.1.1.11")
 
     # format_oid
     def fo(self, oid):
