@@ -9,6 +9,12 @@ class ArgumentError(Exception):
     def __str__(self):
         return repr(self.value)    
 
+class SnmpError(Exception):
+    def __init__(self, value):
+        self.value = value
+    def __str__(self):
+        return repr(self.value)
+
 class SnmpHandler(object):
     
 
@@ -18,6 +24,7 @@ class SnmpHandler(object):
         self.version = False
         self.community = False
         self.host = False
+        self.errors = "raise"
 
 
         for key in kwargs:
@@ -50,8 +57,9 @@ class SnmpHandler(object):
         )
 
         if errorIndication or errorStatus:
-            # Fix error handling
-            pass
+            current_error = errorIndication._ErrorIndication__descr
+            if self.errors == "raise":
+                raise SnmpError(current_error)
 
         return varBinds
 
