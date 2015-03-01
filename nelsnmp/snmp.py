@@ -1,6 +1,20 @@
 from pysnmp.entity.rfc3413.oneliner import cmdgen
+from pysnmp.proto.rfc1902 import (
+    Counter32,
+    Counter64,
+    Gauge32,
+    Integer,
+    Integer32,
+    IpAddress,
+    OctetString,
+    TimeTicks,
+    Unsigned32,
+)
+
 
 SNMP_VERSIONS = ('2c', '3')
+
+
 
 
 class ArgumentError(Exception):
@@ -14,6 +28,30 @@ class SnmpError(Exception):
         self.value = value
     def __str__(self):
         return repr(self.value)
+
+def return_pretty_val(value):
+    if isinstance(value, Counter32):
+        return int(value.prettyPrint())
+    if isinstance(value, Counter64):
+        return int(value.prettyPrint())
+    if isinstance(value, Gauge32):
+        return int(value.prettyPrint())
+    if isinstance(value, Integer):
+        return int(value.prettyPrint())
+    if isinstance(value, Integer32):
+        return int(value.prettyPrint())
+    if isinstance(value, Unsigned32):
+        return int(value.prettyPrint())
+    if isinstance(value, IpAddress):
+        return str(value.prettyPrint())
+    if isinstance(value, OctetString):
+        try:
+            return value.asOctets().decode(value.encoding)
+        except UnicodeDecodeError:
+            return value.asOctets()
+    if isinstance(value, TimeTicks):
+        return timedelta(seconds=int(value.prettyPrint()) / 100.0)
+    return value    
 
 class SnmpHandler(object):
     
@@ -47,7 +85,8 @@ class SnmpHandler(object):
 
         snmp_query = []
         for oid in oidlist:
-            snmp_query.append(cmdgen.MibVariable(oid,), )
+            #snmp_query.append(cmdgen.MibVariable(oid,), )
+            snmp_query.append(oid,)
 
         cmdGen = cmdgen.CommandGenerator()
         errorIndication, errorStatus, errorIndex, varBinds = cmdGen.getCmd(
@@ -61,14 +100,20 @@ class SnmpHandler(object):
             if self.errors == "raise":
                 raise SnmpError(current_error)
 
-        return varBinds
+        pretty_varbinds = []
+        for oid, value in varBinds:
+            pretty_varbinds.append([oid.prettyPrint(), return_pretty_val(value)])
+
+        return pretty_varbinds
+        #return varBinds
 
 
     def getnext(self, *oidlist):
 
         snmp_query = []
         for oid in oidlist:
-            snmp_query.append(cmdgen.MibVariable(oid,), )
+            #snmp_query.append(cmdgen.MibVariable(oid,), )
+            snmp_query.append(oid,)
 
         cmdGen = cmdgen.CommandGenerator()
         errorIndication, errorStatus, errorIndex, varTable = cmdGen.nextCmd(
@@ -78,10 +123,20 @@ class SnmpHandler(object):
         )
 
         if errorIndication or errorStatus:
-            # Fix error handling
-            pass
+            current_error = errorIndication._ErrorIndication__descr
+            if self.errors == "raise":
+                raise SnmpError(current_error)
 
-        return varTable
+        pretty_vartable = []
+        
+        for varbinds in varTable:
+            pretty_varbinds = []
+            for oid, value in varbinds:
+                pretty_varbinds.append([oid.prettyPrint(), return_pretty_val(value)])
+            pretty_vartable.append(pretty_varbinds)
+
+        #return varTable
+        return pretty_vartable
 
     def set(self, *snmp_sets):
 
