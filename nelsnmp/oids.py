@@ -9,50 +9,34 @@ class GeneralOids(object):
     value: When looking at the return values from a query use the oid as is
     """
 
-    def __init__(self, snmptype):
-        if snmptype != "get" and snmptype != "set" and snmptype != "value":
-            # return "ERROR"
-            sys.exit()
-
-        self.snmp_type = snmptype
+    def __init__(self):
 
         # From SNMPv2-MIB
-        self.sysDescr = self.fo(
-            "1.3.6.1.2.1.1.1")
-        self.sysObjectId = self.fo("1.3.6.1.2.1.1.2")
-        self.sysUpTime   = self.fo("1.3.6.1.2.1.1.3")
-        self.sysContact  = self.fo("1.3.6.1.2.1.1.4")
-        self.sysName     = self.fo("1.3.6.1.2.1.1.5")
-        self.sysLocation = self.fo("1.3.6.1.2.1.1.6")
+        self.sysDescr = "1.3.6.1.2.1.1.1"
+        self.sysObjectId = "1.3.6.1.2.1.1.2"
+        self.sysUpTime   = "1.3.6.1.2.1.1.3"
+        self.sysContact  = "1.3.6.1.2.1.1.4"
+        self.sysName     = "1.3.6.1.2.1.1.5"
+        self.sysLocation = "1.3.6.1.2.1.1.6"
 
         # From IF-MIB
-        self.ifTable       = self.fo("1.3.6.1.2.1.2.2")
-        self.ifEntry       = self.fo("1.3.6.1.2.1.2.2.1")
-        self.ifIndex       = self.fo("1.3.6.1.2.1.2.2.1.1")
-        self.ifDescr       = self.fo("1.3.6.1.2.1.2.2.1.2")
-        self.ifMtu         = self.fo("1.3.6.1.2.1.2.2.1.4")
-        self.ifSpeed       = self.fo("1.3.6.1.2.1.2.2.1.5")
-        self.ifPhysAddress = self.fo("1.3.6.1.2.1.2.2.1.6")
-        self.ifAdminStatus = self.fo("1.3.6.1.2.1.2.2.1.7")
-        self.ifOperStatus  = self.fo("1.3.6.1.2.1.2.2.1.8")
-        self.ifAlias       = self.fo("1.3.6.1.2.1.31.1.1.1.18")
+        self.ifTable       = "1.3.6.1.2.1.2.2"
+        self.ifEntry       = "1.3.6.1.2.1.2.2.1"
+        self.ifIndex       = "1.3.6.1.2.1.2.2.1.1"
+        self.ifDescr       = "1.3.6.1.2.1.2.2.1.2"
+        self.ifMtu         = "1.3.6.1.2.1.2.2.1.4"
+        self.ifSpeed       = "1.3.6.1.2.1.2.2.1.5"
+        self.ifPhysAddress = "1.3.6.1.2.1.2.2.1.6"
+        self.ifAdminStatus = "1.3.6.1.2.1.2.2.1.7"
+        self.ifOperStatus  = "1.3.6.1.2.1.2.2.1.8"
+        self.ifAlias       = "1.3.6.1.2.1.31.1.1.1.18"
 
         # From IP-MIB
-        self.ipAdEntAddr    = self.fo("1.3.6.1.2.1.4.20.1.1")
-        self.ipAdEntIfIndex = self.fo("1.3.6.1.2.1.4.20.1.2")
-        self.ipAdEntNetMask = self.fo("1.3.6.1.2.1.4.20.1.3")
+        self.ipAdEntAddr    = "1.3.6.1.2.1.4.20.1.1"
+        self.ipAdEntIfIndex = "1.3.6.1.2.1.4.20.1.2"
+        self.ipAdEntNetMask = "1.3.6.1.2.1.4.20.1.3"
                        
         # From ENTITY-MIB
-        self.entPhysicalDescr = self.fo("1.3.6.1.2.1.47.1.1.1.1.2")
-        self.entPhysicalSerialNum = self.fo("1.3.6.1.2.1.47.1.1.1.1.11")
-
-    # format_oid
-    def fo(self, oid):
-
-        if self.snmp_type == 'get':
-            return "." + oid
-        if self.snmp_type == 'value':
-            return oid
-        if self.snmp_type == 'set':
-            oidlist = list(oid.split("."))
-            return map(int, oidlist)
+        self.entPhysicalDescr = "1.3.6.1.2.1.47.1.1.1.1.2"
+        self.entPhysicalSerialNum = "1.3.6.1.2.1.47.1.1.1.1.11"
+        

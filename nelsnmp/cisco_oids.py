@@ -10,45 +10,29 @@ class CiscoOids(GeneralOids):
     value: When looking at the return values from a query use the oid as is
     """
 
-    def __init__(self, snmptype):
+    def __init__(self):
 
-        super(CiscoOids, self).__init__(snmptype)
+        super(CiscoOids, self).__init__()
 
         # From CISCO-VTP-MIB
-        self.vtpVlanIndex = self.fo(
-            "1.3.6.1.4.1.9.9.46.1.3.1.1.1")
-        self.vtpVlanState = self.fo(
-            "1.3.6.1.4.1.9.9.46.1.3.1.1.2")
-        self.vtpVlanName = self.fo(
-            "1.3.6.1.4.1.9.9.46.1.3.1.1.4")       
-        self.vtpVlanEditOperation = self.fo(
-            "1.3.6.1.4.1.9.9.46.1.4.1.1.1")
-        self.vtpVlanEditBufferOwner = self.fo(
-            "1.3.6.1.4.1.9.9.46.1.4.1.1.3")
-        self.vtpVlanEditTable = self.fo(
-            "1.3.6.1.4.1.9.9.46.1.4.2")
-        self.vtpVlanApplyStatus = self.fo(
-            "1.3.6.1.4.1.9.9.46.1.4.1.1.2")
-        self.vtpVlanEditType = self.fo(
-            "1.3.6.1.4.1.9.9.46.1.4.2.1.3")
-        self.vtpVlanEditName = self.fo(
-            "1.3.6.1.4.1.9.9.46.1.4.2.1.4")
-        self.vtpVlanEditDot10Said = self.fo(
-            "1.3.6.1.4.1.9.9.46.1.4.2.1.6")
-        self.vtpVlanEditRowStatus = self.fo(
-            "1.3.6.1.4.1.9.9.46.1.4.2.1.11")
+        self.vtpVlanIndex = "1.3.6.1.4.1.9.9.46.1.3.1.1.1"
+        self.vtpVlanState = "1.3.6.1.4.1.9.9.46.1.3.1.1.2"
+        self.vtpVlanName = "1.3.6.1.4.1.9.9.46.1.3.1.1.4"       
+        self.vtpVlanEditOperation = "1.3.6.1.4.1.9.9.46.1.4.1.1.1"
+        self.vtpVlanEditBufferOwner = "1.3.6.1.4.1.9.9.46.1.4.1.1.3"
+        self.vtpVlanEditTable = "1.3.6.1.4.1.9.9.46.1.4.2"
+        self.vtpVlanApplyStatus = "1.3.6.1.4.1.9.9.46.1.4.1.1.2"
+        self.vtpVlanEditType = "1.3.6.1.4.1.9.9.46.1.4.2.1.3"
+        self.vtpVlanEditName = "1.3.6.1.4.1.9.9.46.1.4.2.1.4"
+        self.vtpVlanEditDot10Said = "1.3.6.1.4.1.9.9.46.1.4.2.1.6"
+        self.vtpVlanEditRowStatus = "1.3.6.1.4.1.9.9.46.1.4.2.1.11"
 
         # From CISCO-CONFIG-COPY-MIB
-        self.ccCopySourceFileType = self.fo(
-            "1.3.6.1.4.1.9.9.96.1.1.1.1.3")
-        self.ccCopyDestFileType = self.fo(
-            "1.3.6.1.4.1.9.9.96.1.1.1.1.4")
-        self.ccCopyState = self.fo(
-            "1.3.6.1.4.1.9.9.96.1.1.1.1.10")
-        self.ccCopyEntryRowStatus = self.fo(
-            "1.3.6.1.4.1.9.9.96.1.1.1.1.14")
+        self.ccCopySourceFileType = "1.3.6.1.4.1.9.9.96.1.1.1.1.3"
+        self.ccCopyDestFileType = "1.3.6.1.4.1.9.9.96.1.1.1.1.4"
+        self.ccCopyState = "1.3.6.1.4.1.9.9.96.1.1.1.1.10"
+        self.ccCopyEntryRowStatus = "1.3.6.1.4.1.9.9.96.1.1.1.1.14"
 
         # From CISCO-FIREWALL-MIB
-        self.cfwConnectionStatValue = self.fo(
-            "1.3.6.1.4.1.9.9.147.1.2.2.2.1.5")
+        self.cfwConnectionStatValue = "1.3.6.1.4.1.9.9.147.1.2.2.2.1.5"
 
