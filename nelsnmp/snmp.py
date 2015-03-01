@@ -12,7 +12,10 @@ from pysnmp.proto.rfc1902 import (
 )
 
 
-SNMP_VERSIONS = ('2c', '3')
+VALID_VERSIONS = ('2c', '3')
+VALID_V3_LEVELS = ('authNoPriv', 'authPriv')
+VALID_INTEGRITY_ALGO = ('md5', 'sha')
+VALID_PRIVACY_ALGO = ('des', '3des', 'aes', 'aes192', 'aes256')
 
 TYPES = {
     'Counter32': Counter32,
@@ -26,6 +29,18 @@ TYPES = {
     'Unsigned32': Unsigned32,
 }
 
+INTEGRITY_ALGO = {
+    'md5': cmdgen.usmHMACMD5AuthProtocol,
+    'sha': cmdgen.usmHMACSHAAuthProtocol
+}
+
+PRIVACY_ALGO = {
+    'aes': cmdgen.usmAesCfb128Protocol,
+    'aes192': cmdgen.usmAesCfb192Protocol,
+    'aes256': cmdgen.usmAesCfb256Protocol,
+    'des': cmdgen.usmDESPrivProtocol,
+    '3des': cmdgen.usm3DESEDEPrivProtocol
+}
 
 class ArgumentError(Exception):
     def __init__(self, value):
@@ -110,24 +125,81 @@ class SnmpHandler(object):
         self.version = False
         self.community = False
         self.host = False
+        self.username = False
+        self.level = False
+        self.integrity = False
+        self.privacy = False
+        self.authkey = False
+        self.privkey = False
         self.errors = "raise"
 
 
         for key in kwargs:
-            if key == 'version' and kwargs[key] in SNMP_VERSIONS:   
-                self.version = kwargs[key]
+            if key == 'version':
+                if kwargs[key] in VALID_VERSIONS:   
+                    self.version = kwargs[key]
+                else:
+                    raise ArgumentError('No valid SNMP version defined')       
             if key == 'community':
                 self.community = kwargs[key]
             if key == 'host':
                 self.host = kwargs[key]
+            if key == 'username':
+                self.username = kwargs[key]
+            if key == 'level':
+                if kwargs[key] in VALID_V3_LEVELS:
+                    self.level = kwargs[key]
+                else:
+                    raise ArgumentError('Security level invalid')
+            if key == 'integrity':
+                if kwargs[key] in VALID_INTEGRITY_ALGO:
+                    self.integrity = kwargs[key]
+                else:
+                    raise ArgumentError('Integrity algorithm not valid')
+            if key == 'privacy':
+                if kwargs[key] in VALID_PRIVACY_ALGO:
+                    self.integrity = kwargs[key]
+                else:
+                    raise ArgumentError('Privacy algorithm not valid')
+            if key == 'authkey':
+                self.authkey = kwargs[key]
+            if key == 'privkey':
+                self.privkey = kwargs[key]
+          
 
-        if self.version not in SNMP_VERSIONS:
-            raise ArgumentError('No valid SNMP version defined')
+        if self.host == False:
+            raise ArgumentError('Host not defined')
 
-        if self.version == False or self.host == False:
-            print "You have to set version and host"
         if self.version == "2c":
             self.snmp_auth = cmdgen.CommunityData(self.community)
+
+        if self.version == "3":
+            if self.username == False:
+                raise ArgumentError('No username specified')
+            if self.level == False:
+                raise ArgumentError('No security level specified')
+            if self.integrity == False:
+                raise ArgumentError('No integrity protocol specified')
+            if self.authkey == False:
+                raise ArgumentError('No authkey specified')
+
+            if self.level == 'authNoPriv':
+                snmp_auth = cmdgen.UsmUserData(self.username,
+                    authKey=self.authkey,
+                    authProtocol=INTEGRITY_ALGO[self.integrity])
+            elif self.level == 'authPriv':
+                if self.privacy == False:
+                    raise ArgumentError('No privacy protocol specified')
+                if self.privkey == False:
+                    raise ArgumentError('No privacy key specified')
+                snmp_auth = cmdgen.UsmUserData(self.username,
+                    authKey=self.authkey,
+                    authProtocol=INTEGRITY_ALGO[self.integrity],
+                    privKey=self.privkey,
+                    privProtocol=PRIVACY_ALGO[self.privacy])
+            else:
+                raise ArgumentError('Unknown error') 
+
 
     def get(self, *oidlist):
 
