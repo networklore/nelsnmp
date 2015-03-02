@@ -160,7 +160,7 @@ class SnmpHandler(object):
                     raise ArgumentError('Integrity algorithm not valid')
             if key == 'privacy':
                 if kwargs[key] in VALID_PRIVACY_ALGO:
-                    self.integrity = kwargs[key]
+                    self.privacy = kwargs[key]
                 else:
                     raise ArgumentError('Privacy algorithm not valid')
             if key == 'authkey':
@@ -186,7 +186,7 @@ class SnmpHandler(object):
                 raise ArgumentError('No authkey specified')
 
             if self.level == 'authNoPriv':
-                snmp_auth = cmdgen.UsmUserData(self.username,
+                self.snmp_auth = cmdgen.UsmUserData(self.username,
                     authKey=self.authkey,
                     authProtocol=INTEGRITY_ALGO[self.integrity])
             elif self.level == 'authPriv':
@@ -194,7 +194,7 @@ class SnmpHandler(object):
                     raise ArgumentError('No privacy protocol specified')
                 if self.privkey == False:
                     raise ArgumentError('No privacy key specified')
-                snmp_auth = cmdgen.UsmUserData(self.username,
+                self.snmp_auth = cmdgen.UsmUserData(self.username,
                     authKey=self.authkey,
                     authProtocol=INTEGRITY_ALGO[self.integrity],
                     privKey=self.privkey,
