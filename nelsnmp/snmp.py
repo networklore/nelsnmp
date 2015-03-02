@@ -10,7 +10,7 @@ from pysnmp.proto.rfc1902 import (
     TimeTicks,
     Unsigned32,
 )
-
+from pyasn1.type.univ import ObjectIdentifier
 
 VALID_VERSIONS = ('2c', '3')
 VALID_V3_LEVELS = ('authNoPriv', 'authPriv')
@@ -79,6 +79,8 @@ def return_pretty_val(value):
     if isinstance(value, Unsigned32):
         return int(value.prettyPrint())
     if isinstance(value, IpAddress):
+        return str(value.prettyPrint())
+    if isinstance(value, ObjectIdentifier):
         return str(value.prettyPrint())
     if isinstance(value, OctetString):
         try:
