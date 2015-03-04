@@ -3,10 +3,6 @@
 class GeneralOids(object):
     """Statically define oids instead of using MIB
 
-    Class Arguments
-    get: While using snmp get a period needs to be added before the numeric oid
-    set: When setting snmp values the oid needs to be presented as a tuple
-    value: When looking at the return values from a query use the oid as is
     """
 
     def __init__(self):
