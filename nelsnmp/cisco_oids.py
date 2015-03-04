@@ -2,7 +2,7 @@ from nelsnmp.oids import GeneralOids
 
 
 class CiscoOids(GeneralOids):
-    """Statically define oids instead of using MIB
+    """Statically define Cisco OIDs and inherit general oids
 
     """
 
