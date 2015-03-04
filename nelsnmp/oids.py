@@ -1,8 +1,7 @@
 
 
 class GeneralOids(object):
-    """Statically define oids instead of using MIB
-
+    """Statically define general oids
     """
 
     def __init__(self):
@@ -31,8 +30,18 @@ class GeneralOids(object):
         self.ipAdEntAddr    = "1.3.6.1.2.1.4.20.1.1"
         self.ipAdEntIfIndex = "1.3.6.1.2.1.4.20.1.2"
         self.ipAdEntNetMask = "1.3.6.1.2.1.4.20.1.3"
+
+        # From HOST-RESOURCES-MIB
+        self.hrStorageIndex = "1.3.6.1.2.1.25.2.3.1.1"
+        self.hrStorageType = "1.3.6.1.2.1.25.2.3.1.2"
+        self.hrStorageDescr = "1.3.6.1.2.1.25.2.3.1.3"
+        self.hrStorageAllocationUnits = "1.3.6.1.2.1.25.2.3.1.4"
+        self.hrStorageSize = "1.3.6.1.2.1.25.2.3.1.5"
+        self.hrStorageUsed = "1.3.6.1.2.1.25.2.3.1.6"
+        self.hrStorageAllocationFailures = "1.3.6.1.2.1.25.2.3.1.7"
                        
         # From ENTITY-MIB
         self.entPhysicalDescr = "1.3.6.1.2.1.47.1.1.1.1.2"
         self.entPhysicalSerialNum = "1.3.6.1.2.1.47.1.1.1.1.11"
-        
+
+
