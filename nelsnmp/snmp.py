@@ -11,6 +11,7 @@ from pysnmp.proto.rfc1902 import (
     Unsigned32,
 )
 from pyasn1.type.univ import ObjectIdentifier
+from datetime import timedelta
 
 VALID_VERSIONS = ('2c', '3')
 VALID_V3_LEVELS = ('authNoPriv', 'authPriv')
@@ -285,6 +286,7 @@ class SnmpHandler(object):
         )
 
         if errorIndication or errorStatus:
-            # Fix error handling
-            pass
+            #current_error = errorIndication._ErrorIndication__descr
+            if self.errors == "raise":
+                raise SnmpError(errorIndication)
 
