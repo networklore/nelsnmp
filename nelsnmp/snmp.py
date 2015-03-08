@@ -228,6 +228,33 @@ class SnmpHandler(object):
 
         return pretty_varbinds
 
+    def get_value(self, *oidlist):
+
+        snmp_query = []
+        for oid in oidlist:
+            snmp_query.append(oid,)
+
+        cmdGen = cmdgen.CommandGenerator()
+        errorIndication, errorStatus, errorIndex, varBinds = cmdGen.getCmd(
+            self.snmp_auth,
+            cmdgen.UdpTransportTarget((self.host, self.port)),
+            *snmp_query
+        )
+
+        if errorIndication or errorStatus:
+            current_error = errorIndication._ErrorIndication__descr
+            if self.errors == "raise":
+                raise SnmpError(current_error)
+
+        values = []
+        for oid, value in varBinds:
+            values.append(return_pretty_val(value))
+
+        if len(values) == 1:
+            values = values[0]
+
+        return values
+
 
     def getnext(self, *oidlist):
 
