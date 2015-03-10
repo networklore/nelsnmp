@@ -10,6 +10,16 @@ class CiscoOids(GeneralOids):
 
         super(CiscoOids, self).__init__()
 
+        # From CISCO-CDP-MIB
+        self.cdpInterfaceEntry = "1.3.6.1.4.1.9.9.23.1.1.1.1"
+        self.cdpInterfaceEnable = "1.3.6.1.4.1.9.9.23.1.1.1.1.2"
+        self.cdpCacheEntry = "1.3.6.1.4.1.9.9.23.1.2.1.1"
+        self.cdpCacheAddressType = "1.3.6.1.4.1.9.9.23.1.2.1.1.3"
+        self.cdpCacheAddress = "1.3.6.1.4.1.9.9.23.1.2.1.1.4"
+        self.cdpGlobalRun = "1.3.6.1.4.1.9.9.23.1.3.1"
+        self.cdpGlobalMessageInterval = "1.3.6.1.4.1.9.9.23.1.3.2"
+        self.cdpGlobalHoldTime = "1.3.6.1.4.1.9.9.23.1.3.3"
+
         # From CISCO-VTP-MIB
         self.vtpVlanIndex = "1.3.6.1.4.1.9.9.46.1.3.1.1.1"
         self.vtpVlanState = "1.3.6.1.4.1.9.9.46.1.3.1.1.2"
