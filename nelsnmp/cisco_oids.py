@@ -9,7 +9,6 @@ class CiscoOids(GeneralOids):
     def __init__(self):
 
         super(CiscoOids, self).__init__()
-
         # From CISCO-CDP-MIB
         self.cdpInterfaceEntry = "1.3.6.1.4.1.9.9.23.1.1.1.1"
         self.cdpInterfaceEnable = "1.3.6.1.4.1.9.9.23.1.1.1.1.2"
@@ -61,4 +60,21 @@ class CiscoOids(GeneralOids):
         # From CISCO-L2L3-INTERFACE-CONFIG-MIB
         self.cL2L3IfModeAdmin = "1.3.6.1.4.1.9.9.151.1.1.1.1.1"
 
-
+        # From CISCO-PORT-SECURITY-MIB
+        self.cpsIfPortSecurityEnable = "1.3.6.1.4.1.9.9.315.1.2.1.1.1"
+        self.cpsIfPortSecurityStatus = "1.3.6.1.4.1.9.9.315.1.2.1.1.2"
+        self.cpsIfMaxSecureMacAddr = "1.3.6.1.4.1.9.9.315.1.2.1.1.3"
+        self.cpsIfCurrentSecureMacAddrCount = "1.3.6.1.4.1.9.9.315.1.2.1.1.4"
+        self.cpsIfSecureMacAddrAgingTime = "1.3.6.1.4.1.9.9.315.1.2.1.1.5"
+        self.cpsIfSecureMacAddrAgingType = "1.3.6.1.4.1.9.9.315.1.2.1.1.6"
+        self.cpsIfStaticMacAddrAgingEnable = "1.3.6.1.4.1.9.9.315.1.2.1.1.7"
+        self.cpsIfViolationAction = "1.3.6.1.4.1.9.9.315.1.2.1.1.8"
+        self.cpsIfViolationCount = "1.3.6.1.4.1.9.9.315.1.2.1.1.9"
+        self.cpsIfSecureLastMacAddress = "1.3.6.1.4.1.9.9.315.1.2.1.1.10"
+        self.cpsIfUnicastFloodingEnable = "1.3.6.1.4.1.9.9.315.1.2.1.1.12"
+        self.cpsIfShutdownTimeout = "1.3.6.1.4.1.9.9.315.1.2.1.1.13"
+        self.cpsIfClearSecureMacAddresses = "1.3.6.1.4.1.9.9.315.1.2.1.1.14"
+        self.cpsIfStickyEnable = "1.3.6.1.4.1.9.9.315.1.2.1.1.15"
+        self.cpsIfInvalidSrcRateLimitEnable = "1.3.6.1.4.1.9.9.315.1.2.1.1.16"
+        self.cpsIfInvalidSrcRateLimitValue = "1.3.6.1.4.1.9.9.315.1.2.1.1.17"
+        self.cpsIfSecureLastMacAddrVlanId = "1.3.6.1.4.1.9.9.315.1.2.1.1.18"
