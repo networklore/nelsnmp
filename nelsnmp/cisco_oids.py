@@ -47,6 +47,8 @@ class CiscoOids(GeneralOids):
         # From CISCO-VLAN-MEMBERSHIP-MIB
         self.vmVlan = "1.3.6.1.4.1.9.9.68.1.2.2.1.2"
 
+        # From CISCO-STP-EXTENSIONS-MIB
+        self.stpxSpanningTreeType = "1.3.6.1.4.1.9.9.82.1.6.1"
 
         # From CISCO-CONFIG-COPY-MIB
         self.ccCopySourceFileType = "1.3.6.1.4.1.9.9.96.1.1.1.1.3"
@@ -59,6 +61,22 @@ class CiscoOids(GeneralOids):
 
         # From CISCO-L2L3-INTERFACE-CONFIG-MIB
         self.cL2L3IfModeAdmin = "1.3.6.1.4.1.9.9.151.1.1.1.1.1"
+
+        # From CISCO-PAE-MIB
+        self.cpaePortMode = "1.3.6.1.4.1.9.9.220.1.1.1.2"
+        self.cpaeGuestVlanNumber = "1.3.6.1.4.1.9.9.220.1.1.1.3"
+        self.cpaeShutdownTimeoutEnabled = "1.3.6.1.4.1.9.9.220.1.1.1.5"
+        self.cpaePortAuthFailVlan = "1.3.6.1.4.1.9.9.220.1.1.1.6"
+        self.cpaePortOperVlan = "1.3.6.1.4.1.9.9.220.1.1.1.7"
+        self.cpaePortOperVlanType = "1.3.6.1.4.1.9.9.220.1.1.1.8"
+        self.cpaeAuthFailVlanMaxAttempts = "1.3.6.1.4.1.9.9.220.1.1.1.9"
+        self.cpaePortCapabilitiesEnabled = "1.3.6.1.4.1.9.9.220.1.1.1.10"
+        self.cpaeMacAuthBypassPortEnabled = "1.3.6.1.4.1.9.9.220.1.8.6.1.1"
+
+
+        # From CISCO-LAG-MIB
+        self.clagAggDistributionProtocol = "1.3.6.1.4.1.9.9.225.1.1.1"
+        self.clagAggDistributionAddressMode = "1.3.6.1.4.1.9.9.225.1.1.2"
 
         # From CISCO-PORT-SECURITY-MIB
         self.cpsIfPortSecurityEnable = "1.3.6.1.4.1.9.9.315.1.2.1.1.1"
