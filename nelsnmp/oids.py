@@ -42,6 +42,13 @@ class GeneralOids(object):
                        
         # From ENTITY-MIB
         self.entPhysicalDescr = "1.3.6.1.2.1.47.1.1.1.1.2"
+        self.entPhysicalName = "1.3.6.1.2.1.47.1.1.1.1.7"
+        self.entPhysicalHardwareRev = "1.3.6.1.2.1.47.1.1.1.1.8"
+        self.entPhysicalFirmwareRev = "1.3.6.1.2.1.47.1.1.1.1.9"
+        self.entPhysicalSoftwareRev = "1.3.6.1.2.1.47.1.1.1.1.10"
         self.entPhysicalSerialNum = "1.3.6.1.2.1.47.1.1.1.1.11"
+        self.entPhysicalMfgName = "1.3.6.1.2.1.47.1.1.1.1.12"
+        self.entPhysicalModelName = "1.3.6.1.2.1.47.1.1.1.1.13"
+
 
 
