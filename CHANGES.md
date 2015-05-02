@@ -1,7 +1,7 @@
 # 0.1.5
 
-Added ability to set snmp port
-Added cdpCacheDeviceId, cdpCacheDevicePort
+* Added ability to set snmp port
+* Added cdpCacheDeviceId, cdpCacheDevicePort
 
 # 0.1.4
 
