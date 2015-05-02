@@ -147,6 +147,11 @@ class SnmpHandler(object):
                 self.community = kwargs[key]
             if key == 'host':
                 self.host = kwargs[key]
+            if key == 'port':
+                if 1 <= kwargs[key] <= 65535:
+                    self.port = kwargs[key]
+                else:
+                    raise ArgumentError('Port must be between 1 and 65535')
             if key == 'username':
                 self.username = kwargs[key]
             if key == 'level':
