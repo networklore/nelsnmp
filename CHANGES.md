@@ -1,3 +1,7 @@
+# 0.1.6
+
+* Added oids from CISCO-CONFIG-COPY-MIB
+
 # 0.1.5
 
 * Added ability to set snmp port
