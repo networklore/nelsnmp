@@ -53,8 +53,11 @@ class CiscoOids(GeneralOids):
         self.stpxSpanningTreeType = "1.3.6.1.4.1.9.9.82.1.6.1"
 
         # From CISCO-CONFIG-COPY-MIB
+        self.ccCopyProtocol = "1.3.6.1.4.1.9.9.96.1.1.1.1.2"
         self.ccCopySourceFileType = "1.3.6.1.4.1.9.9.96.1.1.1.1.3"
         self.ccCopyDestFileType = "1.3.6.1.4.1.9.9.96.1.1.1.1.4"
+        self.ccCopyServerAddress = "1.3.6.1.4.1.9.9.96.1.1.1.1.5"
+        self.ccCopyFileName = "1.3.6.1.4.1.9.9.96.1.1.1.1.6"
         self.ccCopyState = "1.3.6.1.4.1.9.9.96.1.1.1.1.10"
         self.ccCopyEntryRowStatus = "1.3.6.1.4.1.9.9.96.1.1.1.1.14"
 
