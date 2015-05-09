@@ -58,8 +58,16 @@ class CiscoOids(GeneralOids):
         self.ccCopyDestFileType = "1.3.6.1.4.1.9.9.96.1.1.1.1.4"
         self.ccCopyServerAddress = "1.3.6.1.4.1.9.9.96.1.1.1.1.5"
         self.ccCopyFileName = "1.3.6.1.4.1.9.9.96.1.1.1.1.6"
+        self.ccCopyUserName = "1.3.6.1.4.1.9.9.96.1.1.1.1.7"
+        self.ccCopyUserPassword = "1.3.6.1.4.1.9.9.96.1.1.1.1.8"
+        self.ccCopyNotificationOnCompletion = "1.3.6.1.4.1.9.9.96.1.1.1.1.9"
         self.ccCopyState = "1.3.6.1.4.1.9.9.96.1.1.1.1.10"
+        self.ccCopyTimeStarted = "1.3.6.1.4.1.9.9.96.1.1.1.1.11"
+        self.ccCopyTimeCompleted = "1.3.6.1.4.1.9.9.96.1.1.1.1.12"
+        self.ccCopyFailCause = "1.3.6.1.4.1.9.9.96.1.1.1.1.13"
         self.ccCopyEntryRowStatus = "1.3.6.1.4.1.9.9.96.1.1.1.1.14"
+        self.ccCopyServerAddressType = "1.3.6.1.4.1.9.9.96.1.1.1.1.15"
+        self.ccCopyServerAddressRev1 = "1.3.6.1.4.1.9.9.96.1.1.1.1.16"
 
         # From CISCO-FIREWALL-MIB
         self.cfwConnectionStatValue = "1.3.6.1.4.1.9.9.147.1.2.2.2.1.5"
