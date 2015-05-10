@@ -1,7 +1,7 @@
 Patrick Ogenstad (@networklore) has written nelsnmp.
 
 Other contributors
- - jefftp (oids)
+ - jefftp (functionality)
  - jimnagy (oids)
 
 Some code and ideas comes from the hnmp project (https://github.com/trehn/hnmp). Credits for how return values are handled should go to Torsten Rehn
