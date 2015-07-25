@@ -112,18 +112,10 @@ class SnmpHandler(object):
 
     def __init__(self, **kwargs):
 
+        self._set_defaults()
+        self._parse_args(**kwargs)
 
-        self.port = 161
-        self.version = False
-        self.community = False
-        self.host = False
-        self.username = False
-        self.level = False
-        self.integrity = False
-        self.privacy = False
-        self.authkey = False
-        self.privkey = False
-
+    def _parse_args(self, **kwargs):
         for key in kwargs:
             if key == 'version':
                 if kwargs[key] in VALID_VERSIONS:
@@ -194,6 +186,18 @@ class SnmpHandler(object):
 
     def _raise_error(self, ErrorType, error_data):
         raise ErrorType(error_data)
+
+    def _set_defaults(self):
+        self.port = 161
+        self.version = False
+        self.community = False
+        self.host = False
+        self.username = False
+        self.level = False
+        self.integrity = False
+        self.privacy = False
+        self.authkey = False
+        self.privkey = False
 
     def get(self, *oidlist):
 
