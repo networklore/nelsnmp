@@ -1,3 +1,7 @@
+# 0.1.7
+
+* Made error handling more flexible
+
 # 0.1.6
 
 * Added oids from CISCO-CONFIG-COPY-MIB
