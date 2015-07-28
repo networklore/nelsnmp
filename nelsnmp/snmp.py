@@ -248,7 +248,6 @@ class SnmpHandler(object):
 
         return values
 
-
     def getnext(self, *oidlist):
 
         snmp_query = []
