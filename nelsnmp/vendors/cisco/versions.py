@@ -1,4 +1,4 @@
-from nelsnmp.vendors.versions import DeviceVersion
+from nelsnmp.hostinfo.version import DeviceVersion
 
 class CiscoVersion(DeviceVersion):
 
