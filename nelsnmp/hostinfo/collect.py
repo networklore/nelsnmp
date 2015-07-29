@@ -1,4 +1,4 @@
-from nelsnmp.vendors.versions import DeviceVersion
+from nelsnmp.hostinfo.version import DeviceVersion
 from nelsnmp.vendors.cisco.versions import CiscoVersion
 
 def get_device_version(**kwargs):
