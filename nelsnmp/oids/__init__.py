@@ -7,12 +7,18 @@ class GeneralOids(object):
     def __init__(self):
 
         # From SNMPv2-MIB
-        self.sysDescr = "1.3.6.1.2.1.1.1"
-        self.sysObjectId = "1.3.6.1.2.1.1.2"
-        self.sysUpTime   = "1.3.6.1.2.1.1.3"
-        self.sysContact  = "1.3.6.1.2.1.1.4"
-        self.sysName     = "1.3.6.1.2.1.1.5"
-        self.sysLocation = "1.3.6.1.2.1.1.6"
+        self.sysDescr = '1.3.6.1.2.1.1.1'
+        self.sysObjectId = '1.3.6.1.2.1.1.2'
+        self.sysUpTime   = '1.3.6.1.2.1.1.3'
+        self.sysContact  = '1.3.6.1.2.1.1.4'
+        self.sysName     = '1.3.6.1.2.1.1.5'
+        self.sysLocation = '1.3.6.1.2.1.1.6'
+        self.sysORTable = '1.3.6.1.2.1.1.9'
+        self.sysOREntry = '1.3.6.1.2.1.1.9.1'
+        self.sysORIndex = '1.3.6.1.2.1.1.9.1.1'
+        self.sysORID = '1.3.6.1.2.1.1.9.1.2'
+        self.sysORDescr = '1.3.6.1.2.1.1.9.1.3'
+        self.sysORUpTime = '1.3.6.1.2.1.1.9.1.4'
 
         # From IF-MIB
         self.ifTable       = "1.3.6.1.2.1.2.2"
@@ -39,7 +45,7 @@ class GeneralOids(object):
         self.hrStorageSize = "1.3.6.1.2.1.25.2.3.1.5"
         self.hrStorageUsed = "1.3.6.1.2.1.25.2.3.1.6"
         self.hrStorageAllocationFailures = "1.3.6.1.2.1.25.2.3.1.7"
-                       
+
         # From ENTITY-MIB
         self.entPhysicalDescr = "1.3.6.1.2.1.47.1.1.1.1.2"
         self.entPhysicalName = "1.3.6.1.2.1.47.1.1.1.1.7"
@@ -49,6 +55,3 @@ class GeneralOids(object):
         self.entPhysicalSerialNum = "1.3.6.1.2.1.47.1.1.1.1.11"
         self.entPhysicalMfgName = "1.3.6.1.2.1.47.1.1.1.1.12"
         self.entPhysicalModelName = "1.3.6.1.2.1.47.1.1.1.1.13"
-
-
-
