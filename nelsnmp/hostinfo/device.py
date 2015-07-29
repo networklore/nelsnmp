@@ -34,9 +34,6 @@ class Hostinfo(object):
             if o.sysUpTime in oid:
                 self.uptime = value
 
-    def get_contact(self):
-        data = self._snmp.get(o.sysContact + '.0')
-        self._parse_data(data)
 
     def get_all(self):
         oids = [
@@ -50,6 +47,14 @@ class Hostinfo(object):
         self._parse_data(data)
         self.get_vendor()
         self.get_version()
+
+    def get_description(self):
+        data = self._snmp.get(o.sysDescr + '.0')
+        self._parse_data(data)
+
+    def get_contact(self):
+        data = self._snmp.get(o.sysContact + '.0')
+        self._parse_data(data)
 
     def get_location(self):
         data = self._snmp.get(o.sysLocation + '.0')
@@ -67,6 +72,8 @@ class Hostinfo(object):
     def get_version(self):
         if self.vendor == None:
             self.get_vendor()
+        if self.description == None:
+            self.get_description()
         version_info = get_device_version(
             sysobjectid=self.sysobjectid,
             description=self.description,
