@@ -1,7 +1,7 @@
+from nelsnmp.hostinfo.collect import get_device_version
 from nelsnmp.oids import GeneralOids
 from nelsnmp.snmp import SnmpHandler
 from nelsnmp.vendors.mappings import vendor_map
-from nelsnmp.vendors.base import get_device_version
 o = GeneralOids()
 
 class Hostinfo(object):
