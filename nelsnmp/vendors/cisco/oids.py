@@ -9,6 +9,34 @@ class CiscoOids(GeneralOids):
     def __init__(self):
 
         super(CiscoOids, self).__init__()
+        # From CISCO-ENVMON-MIB
+        self.ciscoEnvMonMIB = '1.3.6.1.4.1.9.9.13'
+        self.ciscoEnvMonVoltageStatusTable = '1.3.6.1.4.1.9.9.13.1.2'
+        self.ciscoEnvMonVoltageStatusEntry = '1.3.6.1.4.1.9.9.13.1.2.1'
+        self.ciscoEnvMonVoltageStatusIndex = '1.3.6.1.4.1.9.9.13.1.2.1.1'
+        self.ciscoEnvMonVoltageStatusDescr = '1.3.6.1.4.1.9.9.13.1.2.1.2'
+        self.ciscoEnvMonVoltageStatusValue = '1.3.6.1.4.1.9.9.13.1.2.1.3'
+        self.ciscoEnvMonVoltageThresholdLow = '1.3.6.1.4.1.9.9.13.1.2.1.4'
+        self.ciscoEnvMonVoltageThresholdHigh = '1.3.6.1.4.1.9.9.13.1.2.1.5'
+        self.ciscoEnvMonVoltageLastShutdown = '1.3.6.1.4.1.9.9.13.1.2.1.6'
+        self.ciscoEnvMonVoltageState = '1.3.6.1.4.1.9.9.13.1.2.1.7'
+        self.ciscoEnvMonTemperatureStatusEntry = '1.3.6.1.4.1.9.9.13.1.3.1'
+        self.ciscoEnvMonTemperatureStatusIndex = '1.3.6.1.4.1.9.9.13.1.3.1.1'
+        self.ciscoEnvMonTemperatureStatusDescr = '1.3.6.1.4.1.9.9.13.1.3.1.2'
+        self.ciscoEnvMonTemperatureStatusValue = '1.3.6.1.4.1.9.9.13.1.3.1.3'
+        self.ciscoEnvMonTemperatureThreshold = '1.3.6.1.4.1.9.9.13.1.3.1.4'
+        self.ciscoEnvMonTemperatureLastShutdown = '1.3.6.1.4.1.9.9.13.1.3.1.5'
+        self.ciscoEnvMonTemperatureState = '1.3.6.1.4.1.9.9.13.1.3.1.6'
+        self.ciscoEnvMonFanStatusEntry = '1.3.6.1.4.1.9.9.13.1.4.1'
+        self.ciscoEnvMonFanStatusIndex = '1.3.6.1.4.1.9.9.13.1.4.1.1'
+        self.ciscoEnvMonFanStatusDescr = '1.3.6.1.4.1.9.9.13.1.4.1.2'
+        self.ciscoEnvMonFanState = '1.3.6.1.4.1.9.9.13.1.4.1.3'
+        self.ciscoEnvMonSupplyStatusEntry = '1.3.6.1.4.1.9.9.13.1.5.1'
+        self.ciscoEnvMonSupplyStatusIndex = '1.3.6.1.4.1.9.9.13.1.5.1.1'
+        self.ciscoEnvMonSupplyStatusDescr = '1.3.6.1.4.1.9.9.13.1.5.1.2'
+        self.ciscoEnvMonSupplyState = '1.3.6.1.4.1.9.9.13.1.5.1.3'
+        self.ciscoEnvMonSupplySource = '1.3.6.1.4.1.9.9.13.1.5.1.4'
+
         # From CISCO-CDP-MIB
         self.cdpInterfaceEntry = "1.3.6.1.4.1.9.9.23.1.1.1.1"
         self.cdpInterfaceEnable = "1.3.6.1.4.1.9.9.23.1.1.1.1.2"
@@ -24,7 +52,7 @@ class CiscoOids(GeneralOids):
         # From CISCO-VTP-MIB
         self.vtpVlanIndex = "1.3.6.1.4.1.9.9.46.1.3.1.1.1"
         self.vtpVlanState = "1.3.6.1.4.1.9.9.46.1.3.1.1.2"
-        self.vtpVlanName = "1.3.6.1.4.1.9.9.46.1.3.1.1.4"       
+        self.vtpVlanName = "1.3.6.1.4.1.9.9.46.1.3.1.1.4"
         self.vtpVlanEditOperation = "1.3.6.1.4.1.9.9.46.1.4.1.1.1"
         self.vtpVlanEditBufferOwner = "1.3.6.1.4.1.9.9.46.1.4.1.1.3"
         self.vtpVlanEditTable = "1.3.6.1.4.1.9.9.46.1.4.2"
@@ -45,12 +73,24 @@ class CiscoOids(GeneralOids):
         self.vlanTrunkPortVlansEnabled4k = "1.3.6.1.4.1.9.9.46.1.6.1.1.19"
         self.vlanTrunkPortSetSerialNo = "1.3.6.1.4.1.9.9.46.1.6.2"
 
-
         # From CISCO-VLAN-MEMBERSHIP-MIB
         self.vmVlan = "1.3.6.1.4.1.9.9.68.1.2.2.1.2"
-
         # From CISCO-STP-EXTENSIONS-MIB
         self.stpxSpanningTreeType = "1.3.6.1.4.1.9.9.82.1.6.1"
+
+        # From CISCO-ENTITY-SENSOR-MIB
+        self.entitySensorMIBObjects = '1.3.6.1.4.1.9.9.91.1'
+        self.entSensorValues = '1.3.6.1.4.1.9.9.91.1.1'
+        self.entSensorValueTable = '1.3.6.1.4.1.9.9.91.1.1.1'
+        self.entSensorValueEntry = '1.3.6.1.4.1.9.9.91.1.1.1.1'
+        self.entSensorType = '1.3.6.1.4.1.9.9.91.1.1.1.1.1'
+        self.entSensorScale = '1.3.6.1.4.1.9.9.91.1.1.1.1.2'
+        self.entSensorPrecision = '1.3.6.1.4.1.9.9.91.1.1.1.1.3'
+        self.entSensorValue = '1.3.6.1.4.1.9.9.91.1.1.1.1.4'
+        self.entSensorStatus = '1.3.6.1.4.1.9.9.91.1.1.1.1.5'
+        self.entSensorValueTimeStamp = '1.3.6.1.4.1.9.9.91.1.1.1.1.6'
+        self.entSensorValueUpdateRate = '1.3.6.1.4.1.9.9.91.1.1.1.1.7'
+        self.entSensorMeasuredEntity = '1.3.6.1.4.1.9.9.91.1.1.1.1.8'
 
         # From CISCO-CONFIG-COPY-MIB
         self.ccCopyProtocol = "1.3.6.1.4.1.9.9.96.1.1.1.1.2"
