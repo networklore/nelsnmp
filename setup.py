@@ -1,10 +1,10 @@
 import re
 
 from codecs import open
-from setuptools import setup
+from setuptools import setup, find_packages
 
 version = ''
-with open('nelsnmp/__init__.py', 'r') as fd:
+with open('lib/nelsnmp/__init__.py', 'r') as fd:
     version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
                         fd.read(), re.MULTILINE).group(1)
 
@@ -21,7 +21,8 @@ long_description = readme + '\n\n' + history
 
 config = {
     'name': 'nelsnmp',
-    'packages': ['nelsnmp'],
+    'package_dir': { '': 'lib' },
+    'packages': find_packages('lib'),
     'version': version,
     'description': 'A wrapper module for pysnmp',
     'long_description': long_description,
