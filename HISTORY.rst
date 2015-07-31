@@ -3,6 +3,11 @@
 Release History
 ---------------
 
+0.1.9
++++++
+
+* Added oids from CISCO-RTTMON-MIB
+
 0.1.8
 +++++
 
