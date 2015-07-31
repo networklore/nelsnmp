@@ -49,6 +49,28 @@ class CiscoOids(GeneralOids):
         self.cdpGlobalMessageInterval = "1.3.6.1.4.1.9.9.23.1.3.2"
         self.cdpGlobalHoldTime = "1.3.6.1.4.1.9.9.23.1.3.3"
 
+        # From CISCO-RTTMON-MIB
+        self.ciscoRttMonMIB = '1.3.6.1.4.1.9.9.42'
+        self.rttMonCtrlAdminEntry = '1.3.6.1.4.1.9.9.42.1.2.1.1'
+        self.rttMonCtrlAdminIndex = '1.3.6.1.4.1.9.9.42.1.2.1.1.1'
+        self.rttMonCtrlAdminOwner = '1.3.6.1.4.1.9.9.42.1.2.1.1.2'
+        self.rttMonCtrlAdminTag = '1.3.6.1.4.1.9.9.42.1.2.1.1.3'
+        self.rttMonCtrlAdminRttType = '1.3.6.1.4.1.9.9.42.1.2.1.1.4'
+        self.rttMonCtrlAdminThreshold = '1.3.6.1.4.1.9.9.42.1.2.1.1.5'
+        self.rttMonCtrlAdminFrequency = '1.3.6.1.4.1.9.9.42.1.2.1.1.6'
+        self.rttMonCtrlAdminTimeout = '1.3.6.1.4.1.9.9.42.1.2.1.1.7'
+        self.rttMonCtrlAdminVerifyData = '1.3.6.1.4.1.9.9.42.1.2.1.1.8'
+        self.rttMonCtrlAdminStatus = '1.3.6.1.4.1.9.9.42.1.2.1.1.9'
+        self.rttMonCtrlAdminNvgen = '1.3.6.1.4.1.9.9.42.1.2.1.1.10'
+        self.rttMonCtrlAdminGroupName = '1.3.6.1.4.1.9.9.42.1.2.1.1.11'
+        self.rttMonLatestRttOperEntry = '1.3.6.1.4.1.9.9.42.1.2.10.1'
+        self.rttMonLatestRttOperCompletionTime = '1.3.6.1.4.1.9.9.42.1.2.10.1.1'
+        self.rttMonLatestRttOperSense = '1.3.6.1.4.1.9.9.42.1.2.10.1.2'
+        self.rttMonLatestRttOperApplSpecificSense = '1.3.6.1.4.1.9.9.42.1.2.10.1.3'
+        self.rttMonLatestRttOperSenseDescription = '1.3.6.1.4.1.9.9.42.1.2.10.1.4'
+        self.rttMonLatestRttOperTime = '1.3.6.1.4.1.9.9.42.1.2.10.1.5'
+        self.rttMonLatestRttOperAddress = '1.3.6.1.4.1.9.9.42.1.2.10.1.6'
+
         # From CISCO-VTP-MIB
         self.vtpVlanIndex = "1.3.6.1.4.1.9.9.46.1.3.1.1.1"
         self.vtpVlanState = "1.3.6.1.4.1.9.9.46.1.3.1.1.2"
