@@ -11,6 +11,8 @@ class CiscoOids(GeneralOids):
         super(CiscoOids, self).__init__()
         # From CISCO-ENVMON-MIB
         self.ciscoEnvMonMIB = '1.3.6.1.4.1.9.9.13'
+        self.ciscoEnvMonObjects = '1.3.6.1.4.1.9.9.13.1'
+        self.ciscoEnvMonPresent = '1.3.6.1.4.1.9.9.13.1.1'
         self.ciscoEnvMonVoltageStatusTable = '1.3.6.1.4.1.9.9.13.1.2'
         self.ciscoEnvMonVoltageStatusEntry = '1.3.6.1.4.1.9.9.13.1.2.1'
         self.ciscoEnvMonVoltageStatusIndex = '1.3.6.1.4.1.9.9.13.1.2.1.1'
@@ -20,6 +22,7 @@ class CiscoOids(GeneralOids):
         self.ciscoEnvMonVoltageThresholdHigh = '1.3.6.1.4.1.9.9.13.1.2.1.5'
         self.ciscoEnvMonVoltageLastShutdown = '1.3.6.1.4.1.9.9.13.1.2.1.6'
         self.ciscoEnvMonVoltageState = '1.3.6.1.4.1.9.9.13.1.2.1.7'
+        self.ciscoEnvMonTemperatureStatusTable = '1.3.6.1.4.1.9.9.13.1.3'
         self.ciscoEnvMonTemperatureStatusEntry = '1.3.6.1.4.1.9.9.13.1.3.1'
         self.ciscoEnvMonTemperatureStatusIndex = '1.3.6.1.4.1.9.9.13.1.3.1.1'
         self.ciscoEnvMonTemperatureStatusDescr = '1.3.6.1.4.1.9.9.13.1.3.1.2'
@@ -27,15 +30,18 @@ class CiscoOids(GeneralOids):
         self.ciscoEnvMonTemperatureThreshold = '1.3.6.1.4.1.9.9.13.1.3.1.4'
         self.ciscoEnvMonTemperatureLastShutdown = '1.3.6.1.4.1.9.9.13.1.3.1.5'
         self.ciscoEnvMonTemperatureState = '1.3.6.1.4.1.9.9.13.1.3.1.6'
+        self.ciscoEnvMonFanStatusTable = '1.3.6.1.4.1.9.9.13.1.4'
         self.ciscoEnvMonFanStatusEntry = '1.3.6.1.4.1.9.9.13.1.4.1'
         self.ciscoEnvMonFanStatusIndex = '1.3.6.1.4.1.9.9.13.1.4.1.1'
         self.ciscoEnvMonFanStatusDescr = '1.3.6.1.4.1.9.9.13.1.4.1.2'
         self.ciscoEnvMonFanState = '1.3.6.1.4.1.9.9.13.1.4.1.3'
+        self.ciscoEnvMonSupplyStatusTable = '1.3.6.1.4.1.9.9.13.1.5'
         self.ciscoEnvMonSupplyStatusEntry = '1.3.6.1.4.1.9.9.13.1.5.1'
         self.ciscoEnvMonSupplyStatusIndex = '1.3.6.1.4.1.9.9.13.1.5.1.1'
         self.ciscoEnvMonSupplyStatusDescr = '1.3.6.1.4.1.9.9.13.1.5.1.2'
         self.ciscoEnvMonSupplyState = '1.3.6.1.4.1.9.9.13.1.5.1.3'
         self.ciscoEnvMonSupplySource = '1.3.6.1.4.1.9.9.13.1.5.1.4'
+        self.ciscoEnvMonAlarmContacts = '1.3.6.1.4.1.9.9.13.1.6'
 
         # From CISCO-CDP-MIB
         self.cdpInterfaceEntry = "1.3.6.1.4.1.9.9.23.1.1.1.1"
