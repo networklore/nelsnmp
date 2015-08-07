@@ -25,4 +25,4 @@ class DeviceVersion(object):
 
     def _clean(self):
         if self.version == None:
-            self.version == 'UNKNOWN'
+            self.version = 'UNKNOWN'
