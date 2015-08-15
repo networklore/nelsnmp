@@ -4,6 +4,7 @@ from nelsnmp.snmp import SnmpHandler
 from nelsnmp.vendors.mappings import vendor_map
 o = GeneralOids()
 
+
 class Hostinfo(object):
 
     def __init__(self, Snmp):
@@ -34,7 +35,6 @@ class Hostinfo(object):
             if o.sysUpTime in oid:
                 self.uptime = value
 
-
     def get_all(self):
         oids = [
             o.sysContact + '.0',
@@ -61,7 +61,7 @@ class Hostinfo(object):
         self._parse_data(data)
 
     def get_vendor(self):
-        if self.sysobjectid == None:
+        if self.sysobjectid is None:
             self.get_sysobjectid()
         try:
             enterprise_id = self.sysobjectid.split('.')[6]
@@ -70,9 +70,9 @@ class Hostinfo(object):
             self.vendor = 'UNKNOWN'
 
     def get_version(self):
-        if self.vendor == None:
+        if self.vendor is None:
             self.get_vendor()
-        if self.description == None:
+        if self.description is None:
             self.get_description()
         version_info = get_device_version(
             sysobjectid=self.sysobjectid,

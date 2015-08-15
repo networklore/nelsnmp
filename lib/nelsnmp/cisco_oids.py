@@ -45,7 +45,6 @@ class CiscoOids(GeneralOids):
         self.vlanTrunkPortVlansEnabled4k = "1.3.6.1.4.1.9.9.46.1.6.1.1.19"
         self.vlanTrunkPortSetSerialNo = "1.3.6.1.4.1.9.9.46.1.6.2"
 
-
         # From CISCO-VLAN-MEMBERSHIP-MIB
         self.vmVlan = "1.3.6.1.4.1.9.9.68.1.2.2.1.2"
 
@@ -85,7 +84,6 @@ class CiscoOids(GeneralOids):
         self.cpaeAuthFailVlanMaxAttempts = "1.3.6.1.4.1.9.9.220.1.1.1.9"
         self.cpaePortCapabilitiesEnabled = "1.3.6.1.4.1.9.9.220.1.1.1.10"
         self.cpaeMacAuthBypassPortEnabled = "1.3.6.1.4.1.9.9.220.1.8.6.1.1"
-
 
         # From CISCO-LAG-MIB
         self.clagAggDistributionProtocol = "1.3.6.1.4.1.9.9.225.1.1.1"

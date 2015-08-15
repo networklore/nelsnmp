@@ -154,7 +154,6 @@ class CiscoOids(GeneralOids):
         self.cpaePortCapabilitiesEnabled = "1.3.6.1.4.1.9.9.220.1.1.1.10"
         self.cpaeMacAuthBypassPortEnabled = "1.3.6.1.4.1.9.9.220.1.8.6.1.1"
 
-
         # From CISCO-LAG-MIB
         self.clagAggDistributionProtocol = "1.3.6.1.4.1.9.9.225.1.1.1"
         self.clagAggDistributionAddressMode = "1.3.6.1.4.1.9.9.225.1.1.2"

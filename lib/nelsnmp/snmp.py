@@ -44,6 +44,7 @@ PRIVACY_ALGO = {
     '3des': cmdgen.usm3DESEDEPrivProtocol
 }
 
+
 def is_ipv4_address(value):
     try:
         c1, c2, c3, c4 = value.split(".")
@@ -54,6 +55,7 @@ def is_ipv4_address(value):
         return True
     except:
         return False
+
 
 def return_pretty_val(value):
     if isinstance(value, Counter32):
@@ -81,6 +83,7 @@ def return_pretty_val(value):
         return timedelta(seconds=int(value.prettyPrint()) / 100.0)
     return value
 
+
 def return_snmp_data(value,value_type):
     if value_type is None:
         if isinstance(value, int):
@@ -99,7 +102,7 @@ def return_snmp_data(value,value_type):
                 ", ".join(TYPES.keys())
             )
     else:
-        if not value_type in TYPES:
+        if value_type not in TYPES:
             raise ValueError("'{}' is not one of the supported types: {}".format(
                 value_type,
                 ", ".join(TYPES.keys())
@@ -107,6 +110,7 @@ def return_snmp_data(value,value_type):
 
         data = TYPES[value_type](value)
     return data
+
 
 class SnmpHandler(object):
 
@@ -121,7 +125,8 @@ class SnmpHandler(object):
                 if kwargs[key] in VALID_VERSIONS:
                     self.version = kwargs[key]
                 else:
-                    self._raise_error(ArgumentError,'No valid SNMP version defined')
+                    self._raise_error(ArgumentError,
+                                      'No valid SNMP version defined')
             if key == 'community':
                 self.community = kwargs[key]
             if key == 'host':
@@ -130,7 +135,8 @@ class SnmpHandler(object):
                 if 1 <= kwargs[key] <= 65535:
                     self.port = kwargs[key]
                 else:
-                    self._raise_error(ArgumentError, 'Port must be between 1 and 65535')
+                    self._raise_error(ArgumentError,
+                                      'Port must be between 1 and 65535')
             if key == 'username':
                 self.username = kwargs[key]
             if key == 'level':
@@ -142,43 +148,50 @@ class SnmpHandler(object):
                 if kwargs[key] in VALID_INTEGRITY_ALGO:
                     self.integrity = kwargs[key]
                 else:
-                    self._raise_error(ArgumentError, 'Integrity algorithm not valid')
+                    self._raise_error(ArgumentError,
+                                      'Integrity algorithm not valid')
             if key == 'privacy':
                 if kwargs[key] in VALID_PRIVACY_ALGO:
                     self.privacy = kwargs[key]
                 else:
-                    self._raise_error(ArgumentError, 'Privacy algorithm not valid')
+                    self._raise_error(ArgumentError,
+                                      'Privacy algorithm not valid')
             if key == 'authkey':
                 self.authkey = kwargs[key]
             if key == 'privkey':
                 self.privkey = kwargs[key]
 
-        if self.host == False:
+        if self.host is False:
             self._raise_error(ArgumentError, 'Host not defined')
 
         if self.version == "2c":
             self.snmp_auth = cmdgen.CommunityData(self.community)
 
         if self.version == "3":
-            if self.username == False:
+            if self.username is False:
                 self._raise_error(ArgumentError, 'No username specified')
-            if self.level == False:
+            if self.level is False:
                 self._raise_error(ArgumentError, 'No security level specified')
-            if self.integrity == False:
-                self._raise_error(ArgumentError, 'No integrity protocol specified')
-            if self.authkey == False:
+            if self.integrity is False:
+                self._raise_error(ArgumentError,
+                                  'No integrity protocol specified')
+            if self.authkey is False:
                 self._raise_error(ArgumentError, 'No authkey specified')
 
             if self.level == 'authNoPriv':
-                self.snmp_auth = cmdgen.UsmUserData(self.username,
+                self.snmp_auth = cmdgen.UsmUserData(
+                    self.username,
                     authKey=self.authkey,
                     authProtocol=INTEGRITY_ALGO[self.integrity])
             elif self.level == 'authPriv':
-                if self.privacy == False:
-                    self._raise_error(ArgumentError, 'No privacy protocol specified')
-                if self.privkey == False:
-                    self._raise_error(ArgumentError, 'No privacy key specified')
-                self.snmp_auth = cmdgen.UsmUserData(self.username,
+                if self.privacy is False:
+                    self._raise_error(ArgumentError,
+                                      'No privacy protocol specified')
+                if self.privkey is False:
+                    self._raise_error(ArgumentError,
+                                      'No privacy key specified')
+                self.snmp_auth = cmdgen.UsmUserData(
+                    self.username,
                     authKey=self.authkey,
                     authProtocol=INTEGRITY_ALGO[self.integrity],
                     privKey=self.privkey,
@@ -218,7 +231,8 @@ class SnmpHandler(object):
 
         pretty_varbinds = []
         for oid, value in varBinds:
-            pretty_varbinds.append([oid.prettyPrint(), return_pretty_val(value)])
+            pretty_varbinds.append([oid.prettyPrint(),
+                                   return_pretty_val(value)])
 
         return pretty_varbinds
 
@@ -270,16 +284,17 @@ class SnmpHandler(object):
         for varbinds in varTable:
             pretty_varbinds = []
             for oid, value in varbinds:
-                pretty_varbinds.append([oid.prettyPrint(), return_pretty_val(value)])
+                pretty_varbinds.append([oid.prettyPrint(),
+                                       return_pretty_val(value)])
             pretty_vartable.append(pretty_varbinds)
 
         return pretty_vartable
 
-    def set(self,oid=None,value=None,value_type=None,multi=None):
+    def set(self, oid=None, value=None, value_type=None, multi=None):
 
         if multi is None:
-            data = return_snmp_data(value,value_type)
-            snmp_sets = (oid,data),
+            data = return_snmp_data(value, value_type)
+            snmp_sets = (oid, data),
         else:
             snmp_sets = []
             for snmp_set in multi:
@@ -288,13 +303,13 @@ class SnmpHandler(object):
                     oid = snmp_set[0]
                     value = snmp_set[1]
                     value_type = None
-                    data = return_snmp_data(value,value_type)
+                    data = return_snmp_data(value, value_type)
                 elif len(snmp_set) == 3:
                     oid = snmp_set[0]
                     value = snmp_set[1]
                     value_type = snmp_set[2]
-                    data = return_snmp_data(value,value_type)
-                snmp_sets.append((oid,data),)
+                    data = return_snmp_data(value, value_type)
+                snmp_sets.append((oid, data),)
 
         cmdGen = cmdgen.CommandGenerator()
         errorIndication, errorStatus, errorIndex, varTable = cmdGen.setCmd(

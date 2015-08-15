@@ -1,5 +1,6 @@
 from nelsnmp.hostinfo.version import DeviceVersion
 
+
 class CiscoVersion(DeviceVersion):
 
     def _get_version(self):
@@ -17,4 +18,4 @@ class CiscoVersion(DeviceVersion):
             elif 'Cisco Adaptive Security Appliance' in line:
                 self.os = 'asa'
                 parts = line.split()
-                self.version =  parts[-1]
+                self.version = parts[-1]

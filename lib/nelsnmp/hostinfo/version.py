@@ -1,4 +1,5 @@
 
+
 class DeviceVersion(object):
 
     def __init__(self, **kwargs):
@@ -24,5 +25,5 @@ class DeviceVersion(object):
         pass
 
     def _clean(self):
-        if self.version == None:
+        if self.version is None:
             self.version = 'UNKNOWN'
