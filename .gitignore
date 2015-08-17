@@ -3,3 +3,6 @@ dist
 *.sublime-project
 *.sublime-workspace
 *.egg-info
+# test output
+.coverage
+.tox
