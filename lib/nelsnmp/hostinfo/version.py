@@ -25,5 +25,7 @@ class DeviceVersion(object):
         pass
 
     def _clean(self):
+        if self.os is None:
+            self.os = 'UNKNOWN'
         if self.version is None:
             self.version = 'UNKNOWN'
