@@ -3,6 +3,13 @@
 Release History
 ---------------
 
+0.2.1
++++++
+
+* Renamed HostInfo class
+* Added IOS-XR, IOS-XE support to Hostinfo
+
+
 0.2.0
 +++++
 
