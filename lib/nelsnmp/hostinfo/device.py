@@ -5,7 +5,7 @@ from nelsnmp.vendors.mappings import vendor_map
 o = GeneralOids()
 
 
-class Hostinfo(object):
+class HostInfo(object):
 
     def __init__(self, Snmp):
 
