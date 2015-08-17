@@ -1,5 +1,6 @@
 from nelsnmp.hostinfo.version import DeviceVersion
 from nelsnmp.vendors.cisco.versions import CiscoVersion
+from nelsnmp.vendors.huawei.versions import HuaweiVersion
 
 
 def get_device_version(**kwargs):
@@ -11,5 +12,8 @@ def get_device_version(**kwargs):
 
     if vendor == 'cisco':
         return CiscoVersion(**kwargs)
+
+    elif vendor == 'huawei':
+        return HuaweiVersion(**kwargs)
 
     return DeviceVersion(**kwargs)
