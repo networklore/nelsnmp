@@ -1,7 +1,7 @@
 
 
 import nelsnmp
-import nelsnmp.snmp
+from nelsnmp.snmp import SnmpHandler
 from nelsnmp.hostinfo.collect import get_device_version
 
 
@@ -10,7 +10,19 @@ def func(x):
 
 
 def test_answer():
-    assert func(3) == 5
+    assert func(4) == 5
+
+
+def test_snmp_handler_v2c():
+    dev = SnmpHandler(host='1.1.1.1', version='2c', community='public')
+    assert dev.version == '2c'
+
+
+def test_snmp_handler_v3():
+    dev = SnmpHandler(host='1.1.1.1', version='3', username='user',
+        level='authPriv', integrity='sha', privacy='aes', authkey='authpass',
+        privkey='privkey')
+    assert dev.version == '3'
 
 
 def test_os():
