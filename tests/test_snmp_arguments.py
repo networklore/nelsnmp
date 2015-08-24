@@ -1,3 +1,5 @@
+import pytest
+from nelsnmp.errors import ArgumentError
 from nelsnmp.snmp import SnmpHandler
 
 
@@ -13,3 +15,11 @@ def test_snmp_handler_v3():
         level='authPriv', integrity='sha', privacy='aes', authkey='authpass',
         privkey='privkey')
     assert dev.version == '3'
+
+
+def test_snmp_handler_wrong_version():
+    with pytest.raises(ArgumentError):
+        SnmpHandler(
+            host='1.1.1.1', version='4', username='user',
+            level='authPriv', integrity='sha', privacy='aes', authkey='authpass',
+            privkey='privkey')
