@@ -298,7 +298,6 @@ class SnmpHandler(object):
         else:
             snmp_sets = []
             for snmp_set in multi:
-                print snmp_set
                 if len(snmp_set) == 2:
                     oid = snmp_set[0]
                     value = snmp_set[1]
