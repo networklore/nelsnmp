@@ -7,17 +7,18 @@ o = GeneralOids()
 
 class HostInfo(object):
 
-    def __init__(self, Snmp):
+    def __init__(self, Snmp, contact=None, description=None, location=None,
+            os=None, vendor=None, sysobjectid=None):
 
         if not isinstance(Snmp, SnmpHandler):
             raise ValueError('Must pass a Nelmon SnmpHandler')
 
-        self.contact = None
-        self.location = None
-        self.sysobjectid = None
-        self.description = None
-        self.os = None
-        self.vendor = None
+        self.contact = contact
+        self.location = location
+        self.sysobjectid = sysobjectid
+        self.description = description
+        self.os = os
+        self.vendor = vendor
         self.version = None
         self.uptime = None
         self._snmp = Snmp
