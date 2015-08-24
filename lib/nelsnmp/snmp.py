@@ -84,7 +84,7 @@ def return_pretty_val(value):
     return value
 
 
-def return_snmp_data(value,value_type):
+def return_snmp_data(value, value_type):
     if value_type is None:
         if isinstance(value, int):
             data = Integer(value)
