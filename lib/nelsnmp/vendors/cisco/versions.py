@@ -1,4 +1,5 @@
 from nelsnmp.hostinfo.version import DeviceVersion
+from nelsnmp.vendors.airespace.oids import AirespaceOids
 
 
 class CiscoVersion(DeviceVersion):
@@ -50,3 +51,14 @@ class CiscoVersion(DeviceVersion):
                         except:
                             pass
                 break
+            elif line == 'Cisco Controller':
+                self._get_wlc_version()
+
+    def _get_wlc_version(self):
+        o = AirespaceOids()
+        vartable = self._snmp.getnext(o.agentInventoryProductVersion)
+        for varbinds in vartable:
+            for oid, value in varbinds:
+                if o.agentInventoryProductVersion in oid:
+                    self.os = 'aireos'
+                    self.version = value
