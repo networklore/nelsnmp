@@ -16,7 +16,7 @@ def get_device_version(**kwargs):
     elif vendor == 'huawei':
         return HuaweiVersion(**kwargs)
     elif vendor == 'net-snmp':
-        if 'snmp' in kwargs.iterkeys():
+        if 'snmp' in kwargs.keys():
             found_vendor = get_netsnmp_device_vendor(kwargs['snmp'])
             if found_vendor:
                 if found_vendor == 'synology':
