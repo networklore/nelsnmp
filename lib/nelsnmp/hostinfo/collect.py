@@ -1,7 +1,8 @@
 from nelsnmp.hostinfo.version import DeviceVersion
 from nelsnmp.vendors.cisco.versions import CiscoVersion
 from nelsnmp.vendors.huawei.versions import HuaweiVersion
-
+from nelsnmp.vendors.synology.versions import SynologyVersion
+from nelsnmp.vendors.synology.oids import SynologyOids
 
 def get_device_version(**kwargs):
 
@@ -12,8 +13,24 @@ def get_device_version(**kwargs):
 
     if vendor == 'cisco':
         return CiscoVersion(**kwargs)
-
     elif vendor == 'huawei':
         return HuaweiVersion(**kwargs)
-
+    elif vendor == 'net-snmp':
+        if 'snmp' in kwargs.iterkeys():
+            found_vendor = get_netsnmp_device_vendor(kwargs['snmp'])
+            if found_vendor:
+                if found_vendor == 'synology':
+                    kwargs['vendor'] = 'synology'
+                    return SynologyVersion(**kwargs)
     return DeviceVersion(**kwargs)
+
+
+def get_netsnmp_device_vendor(snmp):
+
+    s = SynologyOids()
+    vartable = snmp.getnext(s.systemStatus)
+    for varbind in vartable:
+        for oid, value in varbind:
+            if s.systemStatus in oid:
+                return 'synology'
+    return None

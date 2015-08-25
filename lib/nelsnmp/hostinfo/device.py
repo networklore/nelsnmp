@@ -4,7 +4,6 @@ from nelsnmp.snmp import SnmpHandler
 from nelsnmp.vendors.mappings import vendor_map
 o = GeneralOids()
 
-
 class HostInfo(object):
 
     def __init__(self, Snmp, contact=None, description=None, location=None,
@@ -78,11 +77,19 @@ class HostInfo(object):
         version_info = get_device_version(
             sysobjectid=self.sysobjectid,
             description=self.description,
-            vendor=self.vendor
+            vendor=self.vendor,
+            snmp=self._snmp
         )
+        if self.vendor != version_info.vendor:
+            self.vendor = version_info.vendor
         self.os = version_info.os
         self.version = version_info.version
 
     def get_sysobjectid(self):
         data = self._snmp.get(o.sysObjectId + '.0')
         self._parse_data(data)
+
+
+class Hostinfo(HostInfo):
+    '''Deprecated marked for removal, use HostInfo instead'''
+    pass

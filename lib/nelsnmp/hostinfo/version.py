@@ -10,13 +10,18 @@ class DeviceVersion(object):
         self.device_class = None
         self.os = None
         self.version = None
+        self.vendor = None
 
         for key in kwargs:
             if key == 'sysobjectid':
                 self._sysobjectid = kwargs[key]
-            if key == 'description':
+            elif key == 'description':
                 self._description = kwargs[key]
                 self._descriptions = kwargs[key].split('\r\n')
+            elif key == 'snmp':
+                self._snmp = kwargs[key]
+            elif key == 'vendor':
+                self.vendor = kwargs[key]
 
         self._get_version()
         self._clean()
