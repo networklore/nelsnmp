@@ -1,4 +1,8 @@
-#   NELSNMP: A wrapper module for pysnmp
+[![Build Status](https://travis-ci.org/networklore/nelsnmp.svg?branch=master)](https://travis-ci.org/networklore/nelsnmp)
+
+
+NELSNMP
+=======
 
 Nelsnmp is a wrapper around pysnmp to make it easier to use SNMP against network equipment.
 
