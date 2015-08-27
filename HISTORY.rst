@@ -9,8 +9,9 @@ Release History
 * Renamed HostInfo class
 * Added IOS-XR, IOS-XE, Cisco AireOS (WLC) support to HostInfo
 * Added Synology NAS support to HostInfo
+* Added Huawei VRP support to HostInfo
+* Added Alcatel Timos support to HostInfo
 * Added product version oid from AIRESPACE-SWITCHING-MIB
-
 
 0.2.0
 +++++
