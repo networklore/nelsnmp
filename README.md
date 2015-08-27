@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/networklore/nelsnmp.svg?branch=master)](https://travis-ci.org/networklore/nelsnmp)
-
+[![Coverage Status](https://coveralls.io/repos/networklore/nelsnmp/badge.svg?branch=master&service=github)](https://coveralls.io/github/networklore/nelsnmp?branch=master)
 
 NELSNMP
 =======
