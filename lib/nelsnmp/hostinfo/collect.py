@@ -1,8 +1,10 @@
 from nelsnmp.hostinfo.version import DeviceVersion
+from nelsnmp.vendors.alcatel.versions import AlcatelVersion
 from nelsnmp.vendors.cisco.versions import CiscoVersion
 from nelsnmp.vendors.huawei.versions import HuaweiVersion
 from nelsnmp.vendors.synology.versions import SynologyVersion
 from nelsnmp.vendors.synology.oids import SynologyOids
+
 
 def get_device_version(**kwargs):
 
@@ -11,6 +13,8 @@ def get_device_version(**kwargs):
         if key == 'vendor':
             vendor = kwargs[key]
 
+    if vendor == 'alcatel':
+        return AlcatelVersion(**kwargs)
     if vendor == 'cisco':
         return CiscoVersion(**kwargs)
     elif vendor == 'huawei':
