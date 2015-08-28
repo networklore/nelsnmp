@@ -1,0 +1,7 @@
+---
+alcatel01:
+  sysobjectid: 1.3.6.1.4.1.6527.1.3.4
+  description: "TiMOS-C-10.0.R9 cpm/hops ALCATEL SR 7750 Copyright (c) 2000-2013 Alcatel-Lucent.\r\nAll rights reserved. All use subject to applicable license agreements.\r\nBuilt on Thu Mar 7 18:50:00 PST 2013 by builder in /rel10.0/b1/R9/panos/main\r\n"
+  vendor: alcatel
+  os: timos
+  version: 10.0.R9
