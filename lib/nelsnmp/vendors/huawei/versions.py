@@ -11,8 +11,6 @@ class HuaweiVersion(DeviceVersion):
                 if len(parts) > 5:
                     if parts[2][-7:] == 'Version':
                         self.version = parts[3]
-                    if parts[5].endswith(')'):
-                        if self.version:
-                            self.version += ' - ' + parts[5][:-1]
-                        else:
-                            self.version = parts[5][:-1]
+                        if parts[5].endswith(')'):
+                            if self.version:
+                                self.version += ' - ' + parts[5][:-1]
