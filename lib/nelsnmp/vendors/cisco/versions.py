@@ -11,20 +11,18 @@ class CiscoVersion(DeviceVersion):
                 parts = line.split(',')
                 for part in parts:
                     if 'Version' in part:
-                        try:
-                            self.version = part.split()[1]
-                        except:
-                            pass
+                        version_strings = part.split()
+                        if len(version_strings) > 1:
+                            self.version = version_strings[1]
                 break
             elif 'Cisco IOS Software' in line:
                 self.os = 'ios'
                 parts = line.split(',')
                 for part in parts:
                     if 'Version' in part:
-                        try:
-                            self.version = part.split()[1]
-                        except:
-                            pass
+                        version_strings = part.split()
+                        if len(version_strings) > 1:
+                            self.version = version_strings[1]
                 break
             elif 'Cisco Adaptive Security Appliance' in line:
                 self.os = 'asa'
@@ -35,10 +33,9 @@ class CiscoVersion(DeviceVersion):
                 parts = line.split(',')
                 for part in parts:
                     if 'Version' in part:
-                        try:
-                            self.version = part.split()[1]
-                        except:
-                            pass
+                        version_strings = part.split()
+                        if len(version_strings) > 1:
+                            self.version = version_strings[1]
                 break
             elif 'Cisco NX-OS' in line:
                 self.os = 'nxos'
