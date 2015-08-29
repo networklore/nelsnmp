@@ -62,3 +62,14 @@ ios_xr01:
   vendor: cisco
   os: ios-xr
   version: 5.2.0[Default]
+
+wlc01:
+  sysobjectid: 1.3.6.1.4.1.9.1.1279
+  description: "Cisco Controller"
+  vendor: cisco
+  os: aireos
+  version: 8.1.111.0
+  walk_oids:
+    agentInventoryProductVersion:
+      oid: 1.3.6.1.4.1.14179.1.1.1.14
+      value: 8.1.111.0
