@@ -42,11 +42,10 @@ class CiscoVersion(DeviceVersion):
                 parts = line.split(',')
                 for part in parts:
                     if 'Version' in part:
-                        try:
-                            self.version = part.split()[1]
+                        version_strings = part.split()
+                        if len(version_strings) > 1:
+                            self.version = version_strings[1]
                             break
-                        except:
-                            pass
                 break
             elif line == 'Cisco Controller':
                 self._get_wlc_version()
