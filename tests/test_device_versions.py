@@ -26,7 +26,15 @@ def declared_hostinfo(monkeypatch, request):
         [ObjectName('.1.3.6.1.2.1.1.1.0'),
          OctetString(request.param['description'])]
     ]
-    return GetCmd(monkeypatch, return_value=data, params=request.param)
+    if 'walk_oids' in request.param.keys():
+        get_next_return = []
+        for extra_oid in request.param['walk_oids']:
+            get_next_return.append([ObjectName('.' + request.param['walk_oids'][extra_oid]['oid']),
+                OctetString(request.param['walk_oids'][extra_oid]['value'])])
+        walk_data = [get_next_return]
+    else:
+        walk_data = None
+    return GetCmd(monkeypatch, return_value=data, walk_data=walk_data, params=request.param)
 
 
 def test_device_versions(declared_hostinfo):
