@@ -20,6 +20,20 @@ asa03:
   os: asa
   version: 8.2(5)48
 
+nxos01:
+  sysobjectid: 1.3.6.1.4.1.9.12.3.1.3.1084
+  description: "Cisco NX-OS(tm) n5000, Software (n5000-uk9), Version 6.0(2)N1(2), RELEASE SOFTWARE Copyright (c) 2002-2012 by Cisco Systems, Inc. Device Manager Version 6.0(2)N1(1),  Compiled 3/14/2013 1:00:00"
+  vendor: cisco
+  os: nxos
+  version: 6.0(2)N1(2)
+
+nxos02:
+  sysobjectid: 1.3.6.1.4.1.9.12.3.1.3.1038
+  description: "'Cisco NX-OS(tm) n5000, Software (n5000-uk9), Version 6.0(2)N1(2a), RELEASE SOFTWARE Copyright (c) 2002-2012 by Cisco Systems, Inc. Device Manager Version 6.0(2)N1(1),  Compiled 5/20/2013 9:00:00"
+  vendor: cisco
+  os: nxos
+  version: 6.0(2)N1(2a)
+
 ios01:
   sysobjectid: 1.3.6.1.4.1.9.1.799
   description: "Cisco IOS Software, C2960 Software (C2960-LANBASEK9-M), Version 15.0(2)SE4, RELEASE SOFTWARE (fc1)\r\nTechnical Support: http://www.cisco.com/techsupport\r\nCopyright (c) 1986-2013 by Cisco Systems, Inc.\r\nCompiled Wed 26-Jun-13 02:49 by prod_rel_team"
