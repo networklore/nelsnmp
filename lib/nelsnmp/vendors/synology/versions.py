@@ -11,4 +11,7 @@ class SynologyVersion(DeviceVersion):
         for varbinds in vartable:
             for oid, value in varbinds:
                 if o.version in oid:
-                    self.version = value
+                    self.os = 'dsm'
+                    version_string = value.split()
+                    if version_string[0] == 'DSM' and len(version_string) > 1:
+                        self.version = version_string[1]

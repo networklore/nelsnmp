@@ -4,8 +4,8 @@ nas01:
   sysobjectid: 1.3.6.1.4.1.8072.3.2.10
   description: "Linux NSSNAS02 3.10.35 #5592 SMP Wed Aug 19 13:38:18 CST 2015 x86_64"
   vendor: synology
-  os: UNKNOWN
-  version: DSM 5.2-5592
+  os: dsm
+  version: 5.2-5592
   walk_oids:
     systemStatus:
       oid: 1.3.6.1.4.1.6574.1.1
