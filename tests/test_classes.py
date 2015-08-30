@@ -31,5 +31,15 @@ class GetCmd:
         return None, None, None, snmpdata
 
     def mynextcmd(snmp_auth, transport, *snmp_data):
-        #snmpdata = get_snmpdata(*snmp_data)
         return None, None, None, getnext_data
+
+
+class GetCmdValues(GetCmd):
+    def __init__(self, monkeypatch, return_value=None, walk_data=None, params=None):
+        global get_snmpdata
+        get_snmpdata = self._get_snmpdata
+        self.return_value = return_value
+        monkeypatch.setattr(cmdgen.CommandGenerator, 'getCmd', self.mygetcmd)
+        monkeypatch.setattr(cmdgen.CommandGenerator, 'nextCmd', self.mynextcmd)
+        if params:
+            self.value = params[2]
