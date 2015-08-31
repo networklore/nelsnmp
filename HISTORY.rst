@@ -3,6 +3,11 @@
 Release History
 ---------------
 
+0.2.2
++++++
+
+* Changes to how Synology NAS versions are reported
+
 0.2.1
 +++++
 
