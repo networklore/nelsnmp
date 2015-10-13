@@ -222,7 +222,8 @@ class SnmpHandler(object):
         errorIndication, errorStatus, errorIndex, varBinds = cmdGen.getCmd(
             self.snmp_auth,
             cmdgen.UdpTransportTarget((self.host, self.port)),
-            *snmp_query
+            *snmp_query,
+            lookupMib=False
         )
 
         if errorIndication or errorStatus:
@@ -246,7 +247,8 @@ class SnmpHandler(object):
         errorIndication, errorStatus, errorIndex, varBinds = cmdGen.getCmd(
             self.snmp_auth,
             cmdgen.UdpTransportTarget((self.host, self.port)),
-            *snmp_query
+            *snmp_query,
+            lookupMib=False
         )
 
         if errorIndication or errorStatus:
@@ -272,7 +274,8 @@ class SnmpHandler(object):
         errorIndication, errorStatus, errorIndex, varTable = cmdGen.nextCmd(
             self.snmp_auth,
             cmdgen.UdpTransportTarget((self.host, self.port)),
-            *snmp_query
+            *snmp_query,
+            lookupMib=False
         )
 
         if errorIndication or errorStatus:
@@ -314,7 +317,8 @@ class SnmpHandler(object):
         errorIndication, errorStatus, errorIndex, varTable = cmdGen.setCmd(
             self.snmp_auth,
             cmdgen.UdpTransportTarget((self.host, self.port)),
-            *snmp_sets
+            *snmp_sets,
+            lookupMib=False
         )
 
         if errorIndication or errorStatus:

@@ -26,11 +26,11 @@ class GetCmd:
             snmpdata = [[ObjectName('1.1'), OctetString(dat)]]
             return snmpdata
 
-    def mygetcmd(snmp_auth, transport, *snmp_data):
+    def mygetcmd(snmp_auth, transport, *snmp_data, **lookupMib):
         snmpdata = get_snmpdata(*snmp_data)
         return None, None, None, snmpdata
 
-    def mynextcmd(snmp_auth, transport, *snmp_data):
+    def mynextcmd(snmp_auth, transport, *snmp_data, **lookupMib):
         return None, None, None, getnext_data
 
 
@@ -49,6 +49,6 @@ class SetCmd:
     def __init__(self, monkeypatch, return_value=None, params=None):
         monkeypatch.setattr(cmdgen.CommandGenerator, 'setCmd', self.mysetcmd)
 
-    def mysetcmd(snmp_auth, transport, *snmp_data):
+    def mysetcmd(snmp_auth, transport, *snmp_data, **lookupMib):
         # snmpdata = get_snmpdata(*snmp_data)
         return None, None, None, snmp_data

@@ -23,7 +23,7 @@ def sysobject(monkeypatch):
 @pytest.fixture
 def patch_pysnmp_get(monkeypatch):
     # getCmd
-    def mygetcmd(*junk):
+    def mygetcmd(*junk, **lookupMib):
         return None, None, None, [[ObjectName('1.1'), OctetString('b')]]
     monkeypatch.setattr(cmdgen.CommandGenerator, 'getCmd', mygetcmd)
 
@@ -36,7 +36,7 @@ def snmp_val(request):
 @pytest.fixture
 def patch_pysnmp_getnext(monkeypatch):
     # nextCmd
-    def mynextcmd(*junk):
+    def mynextcmd(*junk, **lookupMib):
         return None, None, None, [[[ObjectName('1.1'), OctetString('b')]]]
 
     monkeypatch.setattr(cmdgen.CommandGenerator, 'nextCmd', mynextcmd)
