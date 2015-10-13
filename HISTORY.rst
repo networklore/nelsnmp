@@ -3,6 +3,11 @@
 Release History
 ---------------
 
+0.2.3
++++++
+
+* Fix to handle changed return values from pysnmp 4.3.0
+
 0.2.2
 +++++
 
