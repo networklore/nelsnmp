@@ -1,5 +1,6 @@
 from nelsnmp.hostinfo.version import DeviceVersion
 from nelsnmp.vendors.alcatel.versions import AlcatelVersion
+from nelsnmp.vendors.arista.versions import AristaVersion
 from nelsnmp.vendors.cisco.versions import CiscoVersion
 from nelsnmp.vendors.huawei.versions import HuaweiVersion
 from nelsnmp.vendors.synology.versions import SynologyVersion
@@ -15,6 +16,8 @@ def get_device_version(**kwargs):
 
     if vendor == 'alcatel':
         return AlcatelVersion(**kwargs)
+    if vendor == 'arista':
+        return AristaVersion(**kwargs)
     if vendor == 'cisco':
         return CiscoVersion(**kwargs)
     elif vendor == 'huawei':
