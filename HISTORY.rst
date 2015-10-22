@@ -3,6 +3,11 @@
 Release History
 ---------------
 
+0.2.4
++++++
+
+* Added Arista support to HostInfo
+
 0.2.3
 +++++
 
