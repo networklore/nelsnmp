@@ -16,7 +16,15 @@ def test_snmp_handler_invalid_version():
             authkey='authpass', privkey='privkey')
 
 
-def test_snmp_arg_invalid_port():
+def test_snmp_arg_invalid_port_type():
+    with pytest.raises(ArgumentError):
+        SnmpHandler(
+            host='1.1.1.1', version='3', username='user',
+            level='authPriv', integrity='sha', privacy='aes',
+            authkey='authpass', privkey='privkey', port='five')
+
+
+def test_snmp_arg_invalid_port_number():
     with pytest.raises(ArgumentError):
         SnmpHandler(
             host='1.1.1.1', version='3', username='user',
