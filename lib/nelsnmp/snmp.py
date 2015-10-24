@@ -132,8 +132,14 @@ class SnmpHandler(object):
             if key == 'host':
                 self.host = kwargs[key]
             if key == 'port':
-                if 1 <= kwargs[key] <= 65535:
-                    self.port = kwargs[key]
+                try:
+                    port = int(kwargs[key])
+                except:
+                    self._raise_error(ArgumentError,
+                                      'Port must be an integer between 1 and 65535')
+
+                if 1 <= port <= 65535:
+                    self.port = port
                 else:
                     self._raise_error(ArgumentError,
                                       'Port must be between 1 and 65535')
