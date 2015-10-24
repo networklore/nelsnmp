@@ -6,7 +6,7 @@ Release History
 0.2.4
 +++++
 
-* Added Arista support to HostInfo
+* Added Arista EOS support to HostInfo
 
 0.2.3
 +++++
