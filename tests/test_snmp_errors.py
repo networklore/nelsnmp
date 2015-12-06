@@ -10,7 +10,7 @@ def test_handle_snmp_handler_invalid_version():
             level='authPriv', integrity='sha', privacy='aes',
             authkey='authpass', privkey='privkey')
     except ArgumentError as e:
-        assert e.__str__() == "'No valid SNMP version defined'"
+        assert e.__str__() == "No valid SNMP version defined"
 
 
 # def test_non_working_snmp_get():
