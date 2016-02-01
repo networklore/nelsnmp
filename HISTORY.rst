@@ -3,6 +3,11 @@
 Release History
 ---------------
 
+0.2.5
++++++
+
+* Added Ericsson SmartEdge (Redback) support to HostInfo
+
 0.2.4
 +++++
 
