@@ -7,6 +7,7 @@ Release History
 +++++
 
 * Added Ericsson SmartEdge (Redback) support to HostInfo
+* HostInfo identifies Juniper as a vendor
 
 0.2.4
 +++++
