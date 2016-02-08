@@ -45,6 +45,7 @@ class GeneralOids(object):
         self.hrStorageSize = "1.3.6.1.2.1.25.2.3.1.5"
         self.hrStorageUsed = "1.3.6.1.2.1.25.2.3.1.6"
         self.hrStorageAllocationFailures = "1.3.6.1.2.1.25.2.3.1.7"
+        self.hrSWInstalledName = '1.3.6.1.2.1.25.6.3.1.2'
 
         # From ENTITY-MIB
         self.entPhysicalDescr = "1.3.6.1.2.1.47.1.1.1.1.2"
