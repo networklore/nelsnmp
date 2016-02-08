@@ -26,6 +26,12 @@ def declared_hostinfo(monkeypatch, request):
         [ObjectName('.1.3.6.1.2.1.1.1.0'),
          OctetString(request.param['description'])]
     ]
+    get_oids = request.param.get('get_oids')
+    if get_oids:
+        for entry in get_oids:
+            data.append([ObjectName(get_oids[entry]['oid']),
+                        OctetString(get_oids[entry]['value'])])
+
     if 'walk_oids' in request.param.keys():
         get_next_return = []
         for extra_oid in request.param['walk_oids']:
