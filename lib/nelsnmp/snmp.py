@@ -143,6 +143,10 @@ class SnmpHandler(object):
                 else:
                     self._raise_error(ArgumentError,
                                       'Port must be between 1 and 65535')
+            if key == 'timeout':
+                self.timeout = kwargs[key]
+            if key == 'retries':
+                self.retries = kwargs[key]
             if key == 'username':
                 self.username = kwargs[key]
             if key == 'level':
@@ -208,6 +212,8 @@ class SnmpHandler(object):
 
     def _set_defaults(self):
         self.port = 161
+        self.timeout = 1
+        self.retries = 5
         self.version = False
         self.community = False
         self.host = False
@@ -227,7 +233,9 @@ class SnmpHandler(object):
         cmdGen = cmdgen.CommandGenerator()
         errorIndication, errorStatus, errorIndex, varBinds = cmdGen.getCmd(
             self.snmp_auth,
-            cmdgen.UdpTransportTarget((self.host, self.port)),
+            cmdgen.UdpTransportTarget((self.host, self.port),
+                                      timeout=self.timeout,
+                                      retries=self.retries),
             *snmp_query,
             lookupMib=False
         )
