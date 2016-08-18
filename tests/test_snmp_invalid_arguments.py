@@ -8,6 +8,14 @@ def test_snmp_missing_host():
         SnmpHandler(version='2c', community='public')
 
 
+def test_snmp_handler_missing_version():
+    with pytest.raises(ArgumentError):
+        SnmpHandler(
+            host='1.1.1.1', username='user',
+            level='authPriv', integrity='sha', privacy='aes',
+            authkey='authpass', privkey='privkey')
+
+
 def test_snmp_handler_invalid_version():
     with pytest.raises(ArgumentError):
         SnmpHandler(

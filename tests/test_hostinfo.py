@@ -62,13 +62,13 @@ def test_os():
 
 
 def test_hostinfo():
-    handler = SnmpHandler(host='1.1.1.1')
+    handler = SnmpHandler(host='1.1.1.1', version='2c')
     hostinfo = HostInfo(handler)
     assert hostinfo.os is None
 
 
 def test_hostinfo_cisco_ios_version():
-    handler = SnmpHandler(host='1.1.1.1')
+    handler = SnmpHandler(host='1.1.1.1', version='2c')
     hostinfo = HostInfo(
         handler,
         vendor='cisco',
@@ -78,7 +78,7 @@ def test_hostinfo_cisco_ios_version():
 
 
 def test_hostinfo_netsnmp(patch_snmp_getnext):
-    handler = SnmpHandler(host='1.1.1.1')
+    handler = SnmpHandler(host='1.1.1.1', version='2c')
     hostinfo = HostInfo(
         handler,
         vendor='net-snmp',
