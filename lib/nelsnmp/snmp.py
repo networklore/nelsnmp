@@ -122,11 +122,7 @@ class SnmpHandler(object):
     def _parse_args(self, **kwargs):
         for key in kwargs:
             if key == 'version':
-                if kwargs[key] in VALID_VERSIONS:
-                    self.version = kwargs[key]
-                else:
-                    self._raise_error(ArgumentError,
-                                      'No valid SNMP version defined')
+                self.version = kwargs[key]
             if key == 'community':
                 self.community = kwargs[key]
             if key == 'host':
@@ -173,6 +169,9 @@ class SnmpHandler(object):
 
         if self.host is False:
             self._raise_error(ArgumentError, 'Host not defined')
+
+        if self.version not in VALID_VERSIONS:
+            self._raise_error(ArgumentError, 'No valid SNMP version defined')
 
         if self.version == "2c":
             self.snmp_auth = cmdgen.CommunityData(self.community)
