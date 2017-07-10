@@ -30,7 +30,7 @@ config = {
     'author': 'Patrick Ogenstad',
     'author_email': 'patrick@ogenstad.com',
     'license': 'Apache',
-    'url': 'http://networklore.com/nelsnmp/',
+    'url': 'https://networklore.com/nelsnmp/',
     'install_requires': ['pysnmp >= 4.3.1'],
     'classifiers': ['Development Status :: 4 - Beta',
                     'Intended Audience :: Developers',

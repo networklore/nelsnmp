@@ -3,6 +3,11 @@
 Release History
 ---------------
 
+0.2.6
++++++
+
+* SnmpHandler now requires version as argument
+
 0.2.5
 +++++
 
