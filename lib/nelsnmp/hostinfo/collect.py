@@ -5,6 +5,7 @@ from nelsnmp.vendors.cisco.versions import CiscoVersion
 from nelsnmp.vendors.ericsson.versions import EricssonVersion
 from nelsnmp.vendors.huawei.versions import HuaweiVersion
 from nelsnmp.vendors.juniper.versions import JuniperVersion
+from nelsnmp.vendors.metamako.versions import MetamakoVersion
 from nelsnmp.vendors.synology.versions import SynologyVersion
 from nelsnmp.vendors.synology.oids import SynologyOids
 
@@ -28,6 +29,8 @@ def get_device_version(**kwargs):
         return HuaweiVersion(**kwargs)
     elif vendor == 'juniper':
         return JuniperVersion(**kwargs)
+    elif vendor == 'metamako':
+        return MetamakoVersion(**kwargs)
     elif vendor == 'net-snmp':
         if 'snmp' in kwargs.keys():
             found_vendor = get_netsnmp_device_vendor(kwargs['snmp'])
