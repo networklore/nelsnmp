@@ -3,6 +3,11 @@
 Release History
 ---------------
 
+0.2.7
++++++
+
+* Add support for Metamako to HostInfo
+
 0.2.6
 +++++
 
