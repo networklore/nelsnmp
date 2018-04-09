@@ -3,6 +3,12 @@
 Release History
 ---------------
 
+
+0.2.8
++++++
+
+* Add support for very old Cisco IOS devices
+
 0.2.7
 +++++
 
