@@ -5,6 +5,7 @@ from nelsnmp.vendors.airespace.oids import AirespaceOids
 class CiscoVersion(DeviceVersion):
 
     def _get_version(self):
+        internetwork_operating_system = False
         for line in self._descriptions:
             if 'IOS-XE Software' in line:
                 self.os = 'ios-xe'
@@ -49,6 +50,17 @@ class CiscoVersion(DeviceVersion):
                 break
             elif line == 'Cisco Controller':
                 self._get_wlc_version()
+            elif 'Cisco Internetwork Operating System Software' in line:
+                self.os = 'ios'
+                internetwork_operating_system = True
+            if internetwork_operating_system:
+                if 'IOS' in line:
+                    parts = line.split(',')
+                    if len(parts) > 1:
+                        if 'Version' in parts[1]:
+                            version_parts = parts[1].strip().split()
+                            if len(version_parts) > 1:
+                                self.version = version_parts[1]
 
     def _get_wlc_version(self):
         o = AirespaceOids()

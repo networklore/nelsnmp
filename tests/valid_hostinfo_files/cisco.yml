@@ -77,6 +77,20 @@ ios_xr01:
   os: ios-xr
   version: 5.2.0[Default]
 
+legacy_ios01:
+  sysobjectid: 1.3.6.1.4.1.9.1.282
+  description: "Cisco Internetwork Operating System Software \r\nIOS (tm) s72033_rp Software (s72033_rp-JK9SV-M), Version 12.2(17d)SXB,  RELEASE SOFTWARE (fc2)\r\nTechnical Support: http://www.cisco.com/techsupport\r\nCopyright (c) 1986-2004 by cisco Systems, Inc.\r\nCompiled Fr"
+  vendor: cisco
+  os: ios
+  version: 12.2(17d)SXB
+
+legacy_ios02:
+  sysobjectid: 1.3.6.1.4.1.9.1.209
+  description: "Cisco Internetwork Operating System Software \r\nIOS (tm) C2600 Software (C2600-IK9S-M), Version 12.2(24b), RELEASE SOFTWARE (fc1)\r\nCopyright (c) 1986-2004 by cisco Systems, Inc.\r\nCompiled Fri 23-Jul-04 21:35 by pwade"
+  vendor: cisco
+  os: ios
+  version: 12.2(24b)
+
 wlc01:
   sysobjectid: 1.3.6.1.4.1.9.1.1279
   description: "Cisco Controller"
