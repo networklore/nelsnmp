@@ -1,6 +1,7 @@
 
 vendor_map = {}
 vendor_map['9'] = 'cisco'
+vendor_map['11'] = 'hpe'
 vendor_map['2011'] = 'huawei'
 vendor_map['2352'] = 'ericsson'
 vendor_map['2636'] = 'juniper'
