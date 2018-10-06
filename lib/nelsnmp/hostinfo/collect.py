@@ -17,20 +17,17 @@ def get_device_version(**kwargs):
         if key == 'vendor':
             vendor = kwargs[key]
 
-    if vendor == 'alcatel':
-        return AlcatelVersion(**kwargs)
-    if vendor == 'arista':
-        return AristaVersion(**kwargs)
-    if vendor == 'cisco':
-        return CiscoVersion(**kwargs)
-    if vendor == 'ericsson':
-        return EricssonVersion(**kwargs)
-    elif vendor == 'huawei':
-        return HuaweiVersion(**kwargs)
-    elif vendor == 'juniper':
-        return JuniperVersion(**kwargs)
-    elif vendor == 'metamako':
-        return MetamakoVersion(**kwargs)
+    vendors = {}
+    vendors['alcatel'] = AlcatelVersion
+    vendors['arista'] = AristaVersion
+    vendors['cisco'] = CiscoVersion
+    vendors['ericsson'] = EricssonVersion
+    vendors['huawei'] = HuaweiVersion
+    vendors['juniper'] = JuniperVersion
+    vendors['metamako'] = MetamakoVersion
+
+    if vendor in vendors:
+        return vendors[vendor](**kwargs)
     elif vendor == 'net-snmp':
         if 'snmp' in kwargs.keys():
             found_vendor = get_netsnmp_device_vendor(kwargs['snmp'])
@@ -38,6 +35,7 @@ def get_device_version(**kwargs):
                 if found_vendor == 'synology':
                     kwargs['vendor'] = 'synology'
                     return SynologyVersion(**kwargs)
+
     return DeviceVersion(**kwargs)
 
 
