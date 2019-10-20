@@ -116,7 +116,19 @@ class SnmpHandler(object):
 
     def __init__(self, **kwargs):
 
-        self._set_defaults()
+        self.port = 161
+        self.timeout = 1
+        self.retries = 5
+        self.version = False
+        self.community = False
+        self.host = False
+        self.username = False
+        self.level = False
+        self.integrity = False
+        self.privacy = False
+        self.authkey = False
+        self.privkey = False
+
         self._parse_args(**kwargs)
 
     def _parse_args(self, **kwargs):
@@ -208,20 +220,6 @@ class SnmpHandler(object):
 
     def _raise_error(self, ErrorType, error_data):
         raise ErrorType(error_data)
-
-    def _set_defaults(self):
-        self.port = 161
-        self.timeout = 1
-        self.retries = 5
-        self.version = False
-        self.community = False
-        self.host = False
-        self.username = False
-        self.level = False
-        self.integrity = False
-        self.privacy = False
-        self.authkey = False
-        self.privkey = False
 
     def get(self, *oidlist):
 
