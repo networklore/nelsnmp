@@ -3,6 +3,8 @@ from nelsnmp.vendors.alcatel.versions import AlcatelVersion
 from nelsnmp.vendors.arista.versions import AristaVersion
 from nelsnmp.vendors.cisco.versions import CiscoVersion
 from nelsnmp.vendors.ericsson.versions import EricssonVersion
+from nelsnmp.vendors.extreme.versions import ExtremeVersion
+from nelsnmp.vendors.hpe.versions import HpeVersion
 from nelsnmp.vendors.huawei.versions import HuaweiVersion
 from nelsnmp.vendors.juniper.versions import JuniperVersion
 from nelsnmp.vendors.metamako.versions import MetamakoVersion
@@ -22,6 +24,8 @@ def get_device_version(**kwargs):
     vendors['arista'] = AristaVersion
     vendors['cisco'] = CiscoVersion
     vendors['ericsson'] = EricssonVersion
+    vendors['extreme'] = ExtremeVersion
+    vendors['hpe'] = HpeVersion
     vendors['huawei'] = HuaweiVersion
     vendors['juniper'] = JuniperVersion
     vendors['metamako'] = MetamakoVersion

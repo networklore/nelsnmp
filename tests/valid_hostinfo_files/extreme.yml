@@ -1,0 +1,8 @@
+---
+extreme01:
+  sysobjectid: 1.3.6.1.4.1.1916.2.93
+  description: 'ExtremeXOS (Stack) version 15.3.1.4 v1531b4-patch1-33 by release-manager'
+  vendor: extreme
+  os: extremexos
+  version: 15.3.1.4 v1531b4-patch1-33
+
