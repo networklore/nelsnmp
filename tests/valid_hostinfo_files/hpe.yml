@@ -1,0 +1,8 @@
+---
+procurve01:
+  sysobjectid: 1.3.6.1.4.1.11.2.3.7.11.62
+  description: 'ProCurve j9020a Switch 2510-48, revision U.11.57, ROM R.10.06 (/sw/code/build/dosx'
+  vendor: hpe
+  os: procurve
+  version: U.11.57
+
