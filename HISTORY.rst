@@ -4,6 +4,12 @@ Release History
 ---------------
 
 
+0.2.9
++++++
+
+* Add support for HPE (Procurve)
+* Add support for Extreme (ExtremeXOS)
+
 0.2.8
 +++++
 
